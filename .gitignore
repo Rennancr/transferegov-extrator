@@ -1,0 +1,19 @@
+# Ambiente Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Saídas e resultados de execução (dados baixados, planilhas, relatórios de evals)
+saida/
+transferegov-extrator-workspace/
+*.tmp.xlsx
+*.tmp.csv
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Planilhas geradas em testes manuais e arquivos de bloqueio do Office
+teste_output/
+~$*

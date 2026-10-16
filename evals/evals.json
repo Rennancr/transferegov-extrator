@@ -1,0 +1,61 @@
+{
+  "skill_name": "transferegov-extrator",
+  "evals": [
+    {
+      "id": 1,
+      "name": "extracao-simples-ano",
+      "prompt": "Preciso de uma planilha Excel com todos os planos de ação das emendas Pix (transferências especiais) do ano de 2024.",
+      "expected_output": "xlsx com a tabela especiais/planos-acao-especiais filtrada por ano_plano_acao=2024; nº de linhas igual ao contar; aba metadados com o filtro.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "filtro-uf-municipio-sem-acento",
+      "prompt": "quais programas fundo a fundo tem como beneficiario o municipio de Uberlandia/MG? me manda numa planilha",
+      "expected_output": "xlsx com fundoafundo/programas-beneficiarios restrita a Uberlândia-MG (5 linhas em 15/10/2026). O usuário digitou sem acento: a busca por nome sem acento retorna 0; a skill deve chegar ao resultado (ex.: código IBGE 3170206 ou nome acentuado) em vez de entregar planilha vazia.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "pedido-vago-emendas-pix-sp",
+      "prompt": "quero as emendas Pix de SP",
+      "expected_output": "xlsx com planos-acao-especiais juntado a beneficiarios-especiais (uf_beneficiario=SP) por id_beneficiario; aba juntado só com SP.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "volume-alto-pergunta-antes",
+      "prompt": "Preciso do extrato bancário completo de todas as parcerias do TransfereGov numa planilha.",
+      "expected_output": "Conta (~1,4 milhão de linhas), informa volume/tempo e pergunta antes de extrair, sugerindo filtros ou CSV. Nenhuma planilha de dados gerada.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "juncao-duas-tabelas-abas",
+      "prompt": "Monta uma planilha com os planos de ação de TED e os dados do programa de cada plano. Quero uma aba para cada tabela e, se der, uma aba já cruzada.",
+      "expected_output": "xlsx com abas COMPLETAS de ted/planos-acao (6477) e ted/programas (5700) e aba juntado por id_programa; metadados.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "name": "csv-regiao-nordeste",
+      "prompt": "Exporta em CSV a lista de municípios e estados beneficiados por transferências especiais na região Nordeste.",
+      "expected_output": "CSV de especiais/beneficiarios-especiais com as 9 UFs do Nordeste (uma consulta por UF), separador ;, UTF-8 com BOM; nº de linhas igual ao contar.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "name": "tabela-inexistente",
+      "prompt": "Extrai pra mim a tabela 'pagamentos-detalhados-emendas' do módulo especiais do TransfereGov, em Excel.",
+      "expected_output": "Não gera arquivo; explica que a tabela não existe, lista/sugere tabelas reais parecidas (ex.: ordens-pagamentos-ordens-bancarias-especiais) e pergunta qual usar, sem chutar.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "name": "convenios-sem-api",
+      "prompt": "Preciso dos convênios assinados pelo Ministério da Saúde em 2025 que estão no TransfereGov, em planilha.",
+      "expected_output": "Entrega xlsx com os convênios do Ministério da Saúde assinados em 2025, via módulo discricionarias (convenio + proposta por ID_PROPOSTA, filtro COD_ORGAO_SUP=36000 ou DESC_ORGAO_SUP e DIA_ASSIN_CONV em 2025). Total = verdade calculada (todos os instrumentos ou só a modalidade CONVÊNIO, explicando a escolha).",
+      "files": []
+    }
+  ]
+}

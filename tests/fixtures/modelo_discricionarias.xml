@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<database name="bd_portal" schema="public" type="PostgreSQL - 12.20">
+   <tables>
+      <table name="acomp_obras_contratos_medicoes_modulo_empresas" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA" nullable="true" remarks="Identificador único da tabela proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="acompanhamento_obras_proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_CONTRATO_MEDICAO_ACOMPANHAMENTO_OBRA" nullable="true" remarks="Identificador único da tabela med_contrato" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="ID_MEDICAO_ACOMPANHAMENTO_OBRA" nullable="false" remarks="Identificador único da tabela med_medicao" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="DATA_INICIO_OBRA_CONTRATO_ACOMPANHAMENTO_OBRA" nullable="true" remarks="Data de Início da Obra do Contrato" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="CNPJ_FORNECEDOR_CONTRATO_ACOMPANHAMENTO_OBRA" nullable="true" remarks="CNJP do Fornecedor" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="NUMERO_MEDICAO_ACOMPANHAMENTO_OBRA" nullable="true" remarks="Número Sequencial da Medição" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="SITUACAO_MEDICAO_ACOMPANHAMENTO_OBRA" nullable="true" remarks="Indicador da Situação da Medição" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="DATA_INICIO_MEDICAO_OBJETO_ACOMPANHAMENTO_OBRA" nullable="true" remarks="Data Inicial da Medição" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="DATA_FIM_MEDICAO_OBJETO_ACOMPANHAMENTO_OBRA" nullable="true" remarks="Data Final da Medição" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="QTD_DIAS_SEM_MEDICAO_ACOMPANHAMENTO_OBRA" nullable="true" remarks="Quantidade de Dias sem Medição no Acompanhamento da Obra" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_MEDICAO_ACOMPANHAMENTO_OBRA" sequenceNumberInPK="1"/>
+         <index name="acompanhamento_obras_medicao_pk" unique="true">
+            <column ascending="true" name="ID_MEDICAO_ACOMPANHAMENTO_OBRA"/>
+         </index>
+      </table>
+      <table name="acomp_obras_valores_itens_medicao_modulo_empresas" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_SUBMETA_VRPL" nullable="false" remarks="Identificador único da tabela med_submeta_medicao" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_CONTRATO_MEDICAO_ACOMPANHAMENTO_OBRA" nullable="true" remarks="Identificador único da tabela med_contrato" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="VALOR_EXECUCAO_FISICA_ACUMULADA_TOTAL_ACOMPANHAMENTO_OBRA" nullable="true" remarks="Somatório do Valor Total Acumulado da Execução Física da Obra" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="VALOR_EXECUCAO_FISICA_ACUMULADA_CONCEDENTE_ACOMPANHAMENTO_OBRA" nullable="true" remarks="Somatório do Valor Acumulado da Execução Física por parte do Concedente da Obra" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="VALOR_EXECUCAO_FISICA_ACUMULADA_CONVENENTE_ACOMPANHAMENTO_OBRA" nullable="true" remarks="Somatório do Valor Acumulado da Execução Física por parte do Convenente da Obra" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="VALOR_EXECUCAO_FISICA_ACUMULADA_EMPRESA_ACOMPANHAMENTO_OBRA" nullable="true" remarks="Somatório do Valor Acumulado da Execução Física por parte da Empresa da Obra" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_SUBMETA_VRPL" sequenceNumberInPK="1"/>
+         <index name="acompanhamento_obras_submeta_pk" unique="true">
+            <column ascending="true" name="ID_SUBMETA_VRPL"/>
+         </index>
+      </table>
+      <table name="ajuste_plano_trabalho" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_AJUSTE_PT" nullable="false" remarks="Identificador único do Ajuste do Plano de Trabalho." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_PROPOSTA" nullable="true" remarks="Código Sequencial do Sistema para uma Proposta." size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NR_AJUSTE_PT" nullable="true" remarks="Número da solicitação de Ajuste do Plano de Trabalho composto por um  sequencial seguido do ano." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="DATA_SOLICITACAO_AJUSTE_PT" nullable="true" remarks="Data de solicitação do Ajuste do Plano de Trabalho." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="SITUACAO_SOLICITACAO_AJUSTE_PT" nullable="true" remarks="Situação da solicitação do Ajuste do Plano de Trabalho. Domínio:  Ajustado (aguardando aprovação), Ajustado e Aprovado, Autorizado (aguardando execução do ajuste), Cadastrado, Em Análise (aguardando parecer), Não Autorizado e Parecer Emitido" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_AJUSTE_PT" sequenceNumberInPK="1"/>
+         <index name="ajuste_pt_pk" unique="true">
+            <column ascending="true" name="ID_AJUSTE_PT"/>
+         </index>
+         <index name="fki_proposta_fk" unique="false">
+            <column ascending="true" name="ID_PROPOSTA"/>
+         </index>
+      </table>
+      <table name="apoiadores_emendas_programas" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_CNPJ_PROGRAMA_EMENDA_APOIADORES_EMENDAS" nullable="false" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="NUMERO_EMENDA_APOIADORES_EMENDAS" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NOME_PARLAMENTAR_APOIADORES_EMENDAS" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="INDICACAO_APOIADORES_EMENDAS" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="PARLAMENTAR_SOLICITANTE_APOIADORES_EMENDAS" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="CPF_PF_SOLICITANTE_APOIADORES_EMENDAS" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="NOME_PF_SOLICITANTE_APOIADORES_EMENDAS" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="CNPJ_PJ_SOLICITANTE_APOIADORES_EMENDAS" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="NOME_PJ_SOLICITANTE_APOIADORES_EMENDAS" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="CNPJ_PROPONENTE_APOIADORES_EMENDAS" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="NOME_PROPONENTE_APOIADORES_EMENDAS" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="VALOR_REPASSE_PROPOSTA_APOIADORES_EMENDAS" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="ID_PROGRAMA" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROGRAMA" foreignKey="id_programa_fk" implied="false" onDeleteCascade="false" schema="public" table="programa"/>
+         </column>
+         <primaryKey column="ID_CNPJ_PROGRAMA_EMENDA_APOIADORES_EMENDAS" sequenceNumberInPK="1"/>
+         <index name="id_cnpj_programa_emenda_apoiadores_emendas_pk" unique="true">
+            <column ascending="true" name="ID_CNPJ_PROGRAMA_EMENDA_APOIADORES_EMENDAS"/>
+         </index>
+         <index name="fki_id_programa_fk" unique="false">
+            <column ascending="true" name="ID_PROGRAMA"/>
+         </index>
+      </table>
+      <table name="consorcios" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA" nullable="true" remarks="Código Sequencial do Sistema para uma Proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="CNPJ_CONSORCIO" nullable="true" remarks="CNPJ do Consórcio" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NOME_CONSORCIO" nullable="true" remarks="Razão Social do Consórcio" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="CODIGO_CNAE_PRIMARIO" nullable="true" remarks="Código do CNAE Primário na Receita Federal" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="DESC_CNAE_PRIMARIO" nullable="true" remarks="Descrição do CNAE Primário na Receita Federal" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="CODIGO_CNAE_SECUNDARIO" nullable="true" remarks="Código do CNAE Secundário na Receita Federal" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="DESC_CNAE_SECUNDARIO" nullable="true" remarks="Descrição do CNAE Secundário na Receita Federal" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="CNPJ_PARTICIPANTE" nullable="true" remarks="CNPJ dos Participantes do Consórcio" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="NOME_PARTICIPANTE" nullable="true" remarks="Descrição do nome dos participantes do Consórcio" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="contrato" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="NR_CONTRATO" nullable="true" remarks="Número do contrato, gerado sequencialmente pelo Sistema" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="DATA_PUBLICACAO_CONTRATO" nullable="true" remarks="Data da publicação do contrato" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="DATA_ASSINATURA_CONTRATO" nullable="true" remarks="Data da assinatura do contrato" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="DATA_INICIO_VIGENCIA_CONTRATO" nullable="true" remarks="Data de início de vigência do contrato" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="DATA_FIM_VIGENCIA_CONTRATO" nullable="true" remarks="Data fim de vigência do contrato" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="OBJETO_CONTRATO" nullable="true" remarks="Objeto do contrato" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="TIPO_AQUISICAO_CONTRATO" nullable="true" remarks="Tipo da aquisição envolvida no contrato:“SERVICO_DE_ENGENHARIA”,“SERVICO”,“MATERIAL_SERVICO”,“OBRAS”,“MATERIAL”" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="VALOR_GLOBAL_CONTRATO" nullable="true" remarks="Valor global do contrato" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="ID_FORNECEDOR_CONTRATO" nullable="true" remarks="Identificação do fornecedor, podendo ser o número do CNPJ, número do CPF ou número da Inscrição Genérica" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="NOME_FORNECEDOR_CONTRATO" nullable="true" remarks="Razão Social do fornecedor" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="ID_LICITACAO" nullable="true" remarks="Identificador único da tabela licitação" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_LICITACAO" foreignKey="licitacao_fk" implied="false" onDeleteCascade="false" schema="public" table="licitacao"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="ID_CONTRATO" nullable="false" remarks="Identificador único da tabela contrato" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_CONTRATO" sequenceNumberInPK="1"/>
+         <index name="id_contrato_pk" unique="true">
+            <column ascending="true" name="ID_CONTRATO"/>
+         </index>
+         <index name="fki_licitacao_fk" unique="false">
+            <column ascending="true" name="ID_LICITACAO"/>
+         </index>
+      </table>
+      <table name="convenio" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="NR_CONVENIO" nullable="false" remarks="Número gerado pelo Siconv. Possui faixa de numeração reservada que vai de 700000 a 999999" size="2147483647" type="varchar" typeCode="12">
+            <child column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="cronograma_desembolso"/>
+            <child column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="desbloqueio_cr"/>
+            <child column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="desembolso"/>
+            <child column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="empenho"/>
+            <child column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="historico_situacao"/>
+            <child column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="ingresso_contrapartida"/>
+            <child column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="licitacao"/>
+            <child column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="meta_crono_fisico"/>
+            <child column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="pagamento"/>
+            <child column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="pagamento_tributo"/>
+            <child column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="prorroga_oficio"/>
+            <child column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="solicitacao_alteracao"/>
+            <child column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="solicitacao_rendimento_aplicacao"/>
+            <child column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="termo_aditivo"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_PROPOSTA" nullable="true" remarks="Código Sequencial do Sistema para uma Proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="DIA" nullable="true" remarks="Dia em que o Convênio foi assinado" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="MES" nullable="true" remarks="Mês em que o Convênio foi assinado" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="ANO" nullable="true" remarks="Ano Assinatura do Convênio" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="DIA_ASSIN_CONV" nullable="true" remarks="Data Assinatura do Convênio" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="SIT_CONVENIO" nullable="true" remarks="Situação atual do Convênio. Domínio: Em execução, Convênio Anulado, Prestação de Contas enviada para Análise, Prestação de Contas Aprovada, Prestação de Contas em Análise, Prestação de Contas em Complementação, Inadimplente, etc" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="SUBSITUACAO_CONV" nullable="true" remarks="Sub-Situação atual do Convênio. Domínio: Convênio, Convênio Cancelado, Convênio Encerrado, Proposta, Em aditivação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="SITUACAO_PUBLICACAO" nullable="true" remarks="Situação atual da Publicação do instrumento. Domínio: Publicado e Transferido para IN" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="INSTRUMENTO_ATIVO" nullable="true" remarks="Convênios que ainda não foram finalizados. Domínio: SIM, NÃO" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="IND_OPERA_OBTV" nullable="true" remarks="Indicativo de que o Convênio opera com OBTV. Domínio: SIM, NÃO" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="NR_PROCESSO" nullable="true" remarks="Número interno do processo físico do instrumento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="UG_EMITENTE" nullable="true" remarks="Número da Unidade Gestora" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="DIA_PUBL_CONV" nullable="true" remarks="Data da Publicação do Convênio" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="DIA_INIC_VIGENC_CONV" nullable="true" remarks="Data de Início de Vigência do Convênio" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="DIA_FIM_VIGENC_CONV" nullable="true" remarks="Data de Fim de Vigência do Convênio" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="DIA_FIM_VIGENC_ORIGINAL_CONV" nullable="true" remarks="Data de Fim de Vigência Original do Convênio sem os TAs e Prorrogas" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="DIAS_PREST_CONTAS" nullable="true" remarks="Pazo para a Prestação de Contas do Convênio" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="DIA_LIMITE_PREST_CONTAS" nullable="true" remarks="Data limite para Prestação de Contas do Convênio" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="DATA_SUSPENSIVA" nullable="true" remarks="Data prevista para resolução da Cláusula Suspensiva" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="DATA_RETIRADA_SUSPENSIVA" nullable="true" remarks="Data de retirada do instrumento da situação de Cláusula Suspensiva" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="DIAS_CLAUSULA_SUSPENSIVA" nullable="true" remarks="Quantidade de dias calculado a partir da diferença entre as datas de previsão para resolução da Cláusula Suspensiva e da data de assinatura do instrumento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="SITUACAO_CONTRATACAO" nullable="true" remarks="Situação atual da Contratação. Domínio: Cláusula Suspensiva, Liminar Judicial, Normal e Sob Liminar Judicial e Cláusula Suspensiva" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="IND_ASSINADO" nullable="true" remarks="Indicativo se o Convênio está assinado ou não. Domínio: SIM, NÃO" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="MOTIVO_SUSPENSAO" nullable="true" remarks="Descrição do motivo de suspensão referente a cláusula suspensiva" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="IND_FOTO" nullable="true" remarks="Indicativo se o Convênio possui foto ou não. Domínio: SIM, NÃO" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="QTDE_CONVENIOS" nullable="true" remarks="Quantidade de Instrumentos Assinados" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="QTD_TA" nullable="true" remarks="Quantidade de Termos Aditivos" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="QTD_PRORROGA" nullable="true" remarks="Quantidade de Prorrogas de Ofício" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="VL_GLOBAL_CONV" nullable="true" remarks="Valor global dos Instrumentos assinados (Valor de Repasse + Valor Contrapartida)" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="VL_REPASSE_CONV" nullable="true" remarks="Valor total do aporte do Governo Federal referente a celebração do Instrumento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="VL_CONTRAPARTIDA_CONV" nullable="true" remarks="Valor total da Contrapartida que será disponibilizada pelo convenente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="VL_EMPENHADO_CONV" nullable="true" remarks="Valor total empenhado do Governo Federal para os Instrumentos" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="VL_DESEMBOLSADO_CONV" nullable="true" remarks="Valor total desembolsado do Governo Federal para a conta do Instrumento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="VL_SALDO_REMAN_TESOURO" nullable="true" remarks="Valores devolvidos ao Tesouro ao término do instrumento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="35" name="VL_SALDO_REMAN_CONVENENTE" nullable="true" remarks="Valores devolvidos ao Convenente ao término do instrumento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="36" name="VL_RENDIMENTO_APLICACAO" nullable="true" remarks="Valores referentes aos redimentos de aplicação financeira" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="37" name="VL_INGRESSO_CONTRAPARTIDA" nullable="true" remarks="Total de valores referente a ingresso de contrapartida dos Instrumentos" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="38" name="VL_SALDO_CONTA" nullable="true" remarks="O Saldo em Conta deve ser entendido como um valor estimado, podendo sofrer variação até o próximo dia útil, principalmente, pelo fato dos rendimentos de aplicação previstos fazerem parte do referido valor." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="39" name="VALOR_GLOBAL_ORIGINAL_CONV" nullable="true" remarks="Valor Global Original do Instrumento" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="NR_CONVENIO" sequenceNumberInPK="1"/>
+         <index name="convenio_pk" unique="true">
+            <column ascending="true" name="NR_CONVENIO"/>
+         </index>
+      </table>
+      <table name="cronograma_desembolso" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA" nullable="true" remarks="Código Sequencial do Sistema para uma Proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="NR_CONVENIO" nullable="true" remarks="Número gerado pelo Siconv. Possui faixa de numeração reservada que vai de 700000 a 999999" size="2147483647" type="varchar" typeCode="12">
+            <parent column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="convenio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NR_PARCELA_CRONO_DESEMBOLSO" nullable="true" remarks="Número da Parcela do Desembolso" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="MES_CRONO_DESEMBOLSO" nullable="true" remarks="Mês do Desembolso" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="ANO_CRONO_DESEMBOLSO" nullable="true" remarks="Ano do Desembolso" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="TIPO_RESP_CRONO_DESEMBOLSO" nullable="true" remarks="Tipo do Responsável definido no Cronograma de Desembolsos. Domínio: Concedente, Convenente e Rendimento de Aplicação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="VALOR_PARCELA_CRONO_DESEMBOLSO" nullable="true" remarks="Valor da Parcela do Desembolso" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="desbloqueio_cr" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="NR_CONVENIO" nullable="true" remarks="Número gerado pelo Siconv. Possui faixa de numeração reservada que vai de 700000 a 999999" size="2147483647" type="varchar" typeCode="12">
+            <parent column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="convenio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="NR_OB" nullable="true" remarks="Número da OB" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="DATA_CADASTRO" nullable="true" remarks="Data de Cadastro" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="DATA_ENVIO" nullable="true" remarks="Data de envio da solicitação de desbloqueio do recurso" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="TIPO_RECURSO_DESBLOQUEIO" nullable="true" remarks="Tipo do Recurso. Domínio: OB, INGRESSO CONTRAPARTIDA e RENDIMENTO APLICAÇÃO" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="VL_TOTAL_DESBLOQUEIO" nullable="true" remarks="Valor total de desbloqueio para o Contrato de Repasse" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="VL_DESBLOQUEADO" nullable="true" remarks="Valor desbloqueado para o Contrato de Repasse" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="VL_BLOQUEADO" nullable="true" remarks="Valor bloqueado para o Contrato de Repasse" size="2147483647" type="varchar" typeCode="12"/>
+         <index name="fki_convenio_fk" unique="false">
+            <column ascending="true" name="NR_CONVENIO"/>
+         </index>
+      </table>
+      <table name="desembolso" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_DESEMBOLSO" nullable="false" remarks="Identificador único gerado pelo Sistema para o Desembolso" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_DESEMBOLSO" foreignKey="desembolso_fk" implied="false" onDeleteCascade="false" schema="public" table="empenho_desembolso"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="NR_CONVENIO" nullable="true" remarks="Número gerado pelo Siconv. Possui faixa de numeração reservada que vai de 700000 a 999999" size="2147483647" type="varchar" typeCode="12">
+            <parent column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="convenio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="DT_ULT_DESEMBOLSO" nullable="true" remarks="Data da última Ordem Bancária gerada" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="QTD_DIAS_SEM_DESEMBOLSO" nullable="true" remarks="Indicador de dias sem desembolso. Domínio: 90,180 e 365 dias" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="DATA_DESEMBOLSO" nullable="true" remarks="Data da Ordem Bancária" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="ANO_DESEMBOLSO" nullable="true" remarks="Ano da Ordem Bancária" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="MES_DESEMBOLSO" nullable="true" remarks="Mês da Ordem Bancária" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="NR_SIAFI" nullable="true" remarks="Número do Documento no SIAFI" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="UG_EMITENTE_DH" nullable="true" remarks="Código da Unidade Gestora responsável pela emissão do documento." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="OBSERVACAO_DH" nullable="true" remarks="Observação a respeito do documento hábil." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="VL_DESEMBOLSADO" nullable="true" remarks="Valor disponibilizado pelo Governo Federal para a conta do instrumento" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_DESEMBOLSO" sequenceNumberInPK="1"/>
+         <index name="desembolso_pk" unique="true">
+            <column ascending="true" name="ID_DESEMBOLSO"/>
+         </index>
+      </table>
+      <table name="emenda" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA" nullable="true" remarks="Código Sequencial do Sistema para uma Proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="QUALIF_PROPONENTE" nullable="true" remarks="Qualificação do proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="COD_PROGRAMA_EMENDA" nullable="true" remarks="Chave que identifica o programa composta por: (Cód.Órgão+Ano+Cód.Sequencial do Sistema)" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="NR_EMENDA" nullable="true" remarks="Número da Emenda Parlamentar" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="NOME_PARLAMENTAR" nullable="true" remarks="Nome do Parlamentar" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="BENEFICIARIO_EMENDA" nullable="true" remarks="CNPJ do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="IND_IMPOSITIVO" nullable="true" remarks="Indicativo de Orçamento Impositivo (Tipo Parlamentar igual a INDIVIDUAL + Ano de Cadastro da Proposta &gt;= 2014). Domínio: SIM, NÃO" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="TIPO_PARLAMENTAR" nullable="true" remarks="Tipo do Parlamentar. Domínio pode ser: INDIVIDUAL, COMISSAO, BANCADA" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="VALOR_REPASSE_PROPOSTA_EMENDA" nullable="true" remarks="Valor da Emenda cadastrada na proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="VALOR_REPASSE_EMENDA" nullable="true" remarks="Valor da Emenda assinada" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="empenho" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_EMPENHO" nullable="false" remarks="Identificador único gerado pelo Sistema para o Empenho" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_EMPENHO" foreignKey="empenho_fk" implied="false" onDeleteCascade="false" schema="public" table="empenho_desembolso"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="NR_CONVENIO" nullable="true" remarks="Número gerado pelo Siconv. Possui faixa de numeração reservada que vai de 700000 a 999999" size="2147483647" type="varchar" typeCode="12">
+            <parent column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="convenio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NR_EMPENHO" nullable="true" remarks="Número da Nota de Empenho" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="TIPO_NOTA" nullable="true" remarks="Código do Tipo de Empenho" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="DESC_TIPO_NOTA" nullable="true" remarks="Descrição do Tipo de Empenho. Domínio: Empenho Original, Empenho de Despesa Pré-Empenhada, Anulação de Empenho, Reforço de Empenho, Estorno de Anulação de Empenho, etc" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="DATA_EMISSAO" nullable="true" remarks="Data de emissão do Empenho" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="COD_SITUACAO_EMPENHO" nullable="true" remarks="Código da Situação atual do empenho" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="DESC_SITUACAO_EMPENHO" nullable="true" remarks="Descrição da Situação atual do empenho. Domínio: Registrado no SIAFI e Enviado" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="UG_EMITENTE" nullable="true" remarks="Unidade Gestora Emitente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="UG_RESPONSAVEL" nullable="true" remarks="Unidade Gestora Responsável" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="FONTE_RECURSO" nullable="true" remarks="Fonte de Recurso da Nota de Empenho" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="NATUREZA_DESPESA" nullable="true" remarks="Código da natureza de despesa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="PLANO_INTERNO" nullable="true" remarks="Descreve o Plano Interno que é composto por até 11 (onze) dígitos alfa-numéricos." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="PTRES" nullable="true" remarks="Programa de Trabalho Resumido corresponde à codificação resumida do Programa de Trabalho (PT)" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="VALOR_EMPENHO" nullable="true" remarks="Valor empenhado" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="RESULTADO_PRIMARIO" nullable="true" remarks="Resultado primário do empenho" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="OBSERVACAO_EMPENHO" nullable="true" remarks="Observação do empenho" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="DESCRICAO_EMENDA_SIAFI" nullable="true" remarks="Descrição da emenda SIAFI" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_EMPENHO" sequenceNumberInPK="1"/>
+         <index name="empenho_pk" unique="true">
+            <column ascending="true" name="ID_EMPENHO"/>
+         </index>
+      </table>
+      <table name="empenho_desembolso" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_DESEMBOLSO" nullable="true" remarks="Identificador único gerado pelo Sistema para o Desembolso" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_DESEMBOLSO" foreignKey="desembolso_fk" implied="false" onDeleteCascade="false" schema="public" table="desembolso"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_EMPENHO" nullable="true" remarks="Identificador único gerado pelo Sistema para o Empenho" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_EMPENHO" foreignKey="empenho_fk" implied="false" onDeleteCascade="false" schema="public" table="empenho"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="VALOR_GRUPO" nullable="true" remarks="Valor presente nos dados orçamentários da OB" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="etapa_crono_fisico" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_META" nullable="true" remarks="Código Sequencial do Sistema para uma Meta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_META" foreignKey="meta_crono_fisico_fk" implied="false" onDeleteCascade="false" schema="public" table="meta_crono_fisico"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_ETAPA" nullable="false" remarks="Código Sequencial do Sistema para uma Etapa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NR_ETAPA" nullable="true" remarks="Número da Etapa gerada pelo Sistema" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="DESC_ETAPA" nullable="true" remarks="Especificação da etapa vinculada a meta do cronograma físico" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="DATA_INICIO_ETAPA" nullable="true" remarks="Data de início prevista para execução da etapa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="DATA_FIM_ETAPA" nullable="true" remarks="Data fim prevista para execução da etapa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="UF_ETAPA" nullable="true" remarks="UF cadastrada para a Etapa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="MUNICIPIO_ETAPA" nullable="true" remarks="Município cadastrado para a Etapa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="ENDERECO_ETAPA" nullable="true" remarks="Endereço cadastrado para a Etapa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="CEP_ETAPA" nullable="true" remarks="CEP cadastrado para a Etapa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="QTD_ETAPA" nullable="true" remarks="Quantidade da etapa vinculada a meta do cronograma físico." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="UND_FORNECIMENTO_ETAPA" nullable="true" remarks="Unidade de fornecimento vinculada a etapa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="VL_ETAPA" nullable="true" remarks="Valor total da etapa vinculada a meta do cronograma físico" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="historico_projeto_basico" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA" nullable="true" remarks="Código Sequencial do Sistema para uma Proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="DATA_HIST_PB_TR" nullable="true" remarks="Data de registro" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="SITUACAO_HIST_PB_TR" nullable="true" remarks="Situação do acompanhamento, valores possiveis ELA(Em Elaboracao), ANL (Em Análise), SCP (Complementação Solicitada), COM (Em complementacao), ACT (Aceita)" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="EVENTO_HIST_PB_TR" nullable="true" remarks="Indicador do Evento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="VERSAO_DOC_PB_TR" nullable="true" remarks="Número da Versão usada no sistema de versionamento" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="historico_situacao" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA" nullable="true" remarks="Código Sequencial do Sistema para uma Proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="NR_CONVENIO" nullable="true" remarks="Número gerado pelo Siconv. Possui faixa de numeração reservada que vai de 700000 a 999999" size="2147483647" type="varchar" typeCode="12">
+            <parent column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="convenio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="DIA_HISTORICO_SIT" nullable="true" remarks="Data de entrada da situação no sistema" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="HISTORICO_SIT" nullable="true" remarks="Situação histórica da Proposta/Convênio" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="DIAS_HISTORICO_SIT" nullable="true" remarks="Dias em que a Proposta/Convênio permaneceu na situação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="COD_HISTORICO_SIT" nullable="true" remarks="Código da situação histórica da Proposta/Convênio, contendo a ordem cronológica do ciclo de vida de um convênio" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="ingresso_contrapartida" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="NR_CONVENIO" nullable="true" remarks="Número gerado pelo Siconv. Possui faixa de numeração reservada que vai de 700000 a 999999" size="2147483647" type="varchar" typeCode="12">
+            <parent column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="convenio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="DT_INGRESSO_CONTRAPARTIDA" nullable="true" remarks="Data da disponibilização do recurso por parte do Convenente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="VL_INGRESSO_CONTRAPARTIDA" nullable="true" remarks="Valor disponibilizado pelo Convenente para a conta do instrumento" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="inst_cont_contratos_lotes_empresas_modulo_empresas" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_CONTRATO_INSTRUMENTO_CONTRATUAL" nullable="false" remarks="Identificador único da tabela instrumentos_contratuais_VBL.contrato" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_PROPOSTA_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Identificador único da tabela instrumentos_contratuais_VBL.proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA_INSTRUMENTO_CONTRATUAL" foreignKey="instrumentos_contratuais_proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="inst_cont_proposta_aio_modulo_empresas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="ID_LOTE_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Identificador único da tabela instrumentos_contratuais_VBL.lote" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="NUMERO_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Número do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="SITUACAO_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Situação do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="DATA_ASSINATURA_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Data de Assinatura do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="DATA_INICIO_VIGENCIA_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Data do Início da Vigência do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="DATA_FIM_VIGENCIA_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Data do Fim da Vigência do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="NUMERO_LOTE_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Número do Lote do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="RAZAO_SOCIAL_EMPRESA_EXECUTORA_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Razão Social do Executor do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="TIPO_IDENTIFICACAO_EMPRESA_EXECUTORA_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Tipo de Identificação (CPF ou CNPJ) do Executor do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="IDENTIFICACAO_EMPRESA_EXECUTORA_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="CPF ou CNPJ do Executor do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_CONTRATO_INSTRUMENTO_CONTRATUAL" sequenceNumberInPK="1"/>
+         <index name="instrumentos_contratuais_contrato_pk" unique="true">
+            <column ascending="true" name="ID_CONTRATO_INSTRUMENTO_CONTRATUAL"/>
+         </index>
+      </table>
+      <table name="inst_cont_metas_submetas_po_modulo_empresas" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_META_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Identificador único da tabela instrumentos_contratuais_VBL.meta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_SUBMETA_INSTRUMENTO_CONTRATUAL" nullable="false" remarks="Identificador único da tabela instrumentos_contratuais_VBL.submeta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="ID_PO_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Identificador único da tabela instrumentos_contratuais_VBL.po" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ID_PROPOSTA_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Identificador único da tabela instrumentos_contratuais_VBL.proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA_INSTRUMENTO_CONTRATUAL" foreignKey="instrumentos_contratuais_proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="inst_cont_proposta_aio_modulo_empresas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="ID_LOTE_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Identificador único da tabela instrumentos_contratuais_VBL.lote" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="NUMERO_META_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Número da Meta do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="DESCRICAO_META_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Descrição da Meta do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="NUMERO_SUBMETA_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Número da Submeta do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="DESCRICAO_SUBMETA_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Descrição da Submeta do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="SITUACAO_SUBMETA_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Situação da Submeta do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="VALOR_TOTAL_LICITADO_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Valor Total Licitado do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="DATA_PREVISAO_INICIO_OBRA_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Data de Previsão do Início da Obra do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="DATABASE_PO_VRPL_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Data-base do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="SIGLA_LOCALIDADE_PO_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Sigla da Localidade do Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="ACOMPANHADO_POR_EVENTO_PO_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Indicador se o PO é acompanhado por eventos no Instrumento Contratual" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_SUBMETA_INSTRUMENTO_CONTRATUAL" sequenceNumberInPK="1"/>
+         <index name="instrumentos_contratuais_submeta_pk" unique="true">
+            <column ascending="true" name="ID_SUBMETA_INSTRUMENTO_CONTRATUAL"/>
+         </index>
+      </table>
+      <table name="inst_cont_proposta_aio_modulo_empresas" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA_INSTRUMENTO_CONTRATUAL" nullable="false" remarks="Identificador único da tabela instrumentos_contratuais_VBL.proposta" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_PROPOSTA_INSTRUMENTO_CONTRATUAL" foreignKey="instrumentos_contratuais_proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="inst_cont_contratos_lotes_empresas_modulo_empresas"/>
+            <child column="ID_PROPOSTA_INSTRUMENTO_CONTRATUAL" foreignKey="instrumentos_contratuais_proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="inst_cont_metas_submetas_po_modulo_empresas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_PROPOSTA" nullable="true" remarks="Identificador único da tabela proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="ID_AIO_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Identificador único da tabela instrumentos_contratuais_VBL.aio" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="SITUACAO_AIO_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Situação da Emissão do AIO" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="DATA_EMISSAO_AIO_INSTRUMENTO_CONTRATUAL" nullable="true" remarks="Data de Emissão do AIO" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_PROPOSTA_INSTRUMENTO_CONTRATUAL" sequenceNumberInPK="1"/>
+         <index name="instrumentos_contratuais_proposta_pk" unique="true">
+            <column ascending="true" name="ID_PROPOSTA_INSTRUMENTO_CONTRATUAL"/>
+         </index>
+      </table>
+      <table name="itens_dl" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="NOME_ITEM_DL" nullable="true" remarks="Nome Do Item Do Documento De Liquidação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="QTD_ITEM_DL" nullable="true" remarks="Quantidade Do Item Do Documento De Liquidação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="UNIDADE_ITEM_DL" nullable="true" remarks="Unidade Do Item Do Documento De Liquidação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="VALOR_TOTAL_ITEM_DL" nullable="true" remarks="Valor Total Do Item Do Documento De Liquidação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="DESCRICAO_ITEM_DL" nullable="true" remarks="Descrição Do Item Do Documento De Liquidação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="ID_ITEM_DL" nullable="false" remarks="Identificador Do Item Do Documento De Liquidação" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_ITEM_DL" sequenceNumberInPK="1"/>
+         <index name="item_dl_pk" unique="true">
+            <column ascending="true" name="ID_ITEM_DL"/>
+         </index>
+      </table>
+      <table name="itens_licitacao" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_LICITACAO" nullable="true" remarks="Identificador único da tabela licitação" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_LICITACAO" foreignKey="id_licitacao_fk" implied="false" onDeleteCascade="false" schema="public" table="licitacao"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_ITEM_LICITACAO" nullable="false" remarks="Identificador do item da licitação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="SEQUENCIAL_ITEM_LICITACAO" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="DESCRICAO_ITEM_LICITACAO" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="TIPO_UNIDADE_ITEM_LICITACAO" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="QUANTIDADE_ITEM_LICITACAO" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="PRECO_UNITARIO_ITEM_LICITACAO" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="NOME_FORNECEDOR_ITEM_LICITACAO" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="IDENTIFICACAO_FORNECEDOR_ITEM_LICITACAO" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="VALOR_TOTAL_ITEM_LICITACAO" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_ITEM_LICITACAO" sequenceNumberInPK="1"/>
+         <index name="id_item_licitacao_pk" unique="true">
+            <column ascending="true" name="ID_ITEM_LICITACAO"/>
+         </index>
+         <index name="fki_ID_LICITACAO" unique="false">
+            <column ascending="true" name="ID_LICITACAO"/>
+         </index>
+      </table>
+      <table name="justificativas_proposta" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA" nullable="true" remarks="Código Sequencial do Sistema para uma Proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="CARACTERIZACAO_INTERESSES_RECI" nullable="true" remarks="Caracterização dos interesses recíprocos da proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="PUBLICO_ALVO" nullable="true" remarks="Público alvo da proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="PROBLEMA_A_SER_RESOLVIDO" nullable="true" remarks="Problema a ser resolvido pela proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="RESULTADOS_ESPERADOS" nullable="true" remarks="Resultados esperados da proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="RELACAO_PROPOSTA_OBJETIVOS_PRO" nullable="true" remarks="Relação entre a proposta e os objetivos e diretrizes do programa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="CAPACIDADE_TECNICA" nullable="true" remarks="Capacidade Técnica e Gerencial da proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="JUSTIFICATIVA" nullable="true" remarks="Justificativa da solicitação da proposta" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="licitacao" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_LICITACAO" nullable="false" remarks="Identificador único da tabela licitação" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_LICITACAO" foreignKey="licitacao_fk" implied="false" onDeleteCascade="false" schema="public" table="contrato"/>
+            <child column="ID_LICITACAO" foreignKey="id_licitacao_fk" implied="false" onDeleteCascade="false" schema="public" table="itens_licitacao"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="NR_CONVENIO" nullable="true" remarks="Número gerado pelo Siconv. Possui faixa de numeração reservada que vai de 700000 a 999999" size="2147483647" type="varchar" typeCode="12">
+            <parent column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="convenio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NR_LICITACAO" nullable="true" remarks="Número do Processo de Execução" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="MODALIDADE_LICITACAO" nullable="true" remarks="Modalidade, depende do Recurso Nacional ou Internacional:Recurso - Lei 8.666/1993:  Convite, Tomada de Preços, Concorrência e Concurso. Recurso - Lei 10.520/2002 - Pregão: Pregão" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="TP_PROCESSO_COMPRA" nullable="true" remarks="Processo de Compras: Dispensa de Licitação, Inexigibilidade, Licitação, Cotação Prévia, Pesquisa de Mercado" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="TIPO_LICITACAO" nullable="true" remarks="Tipo da Licitação: depende da modalidade.Modalidade Convite: Menor Valor.Modalidade Tomada de Preço: Menor Preço, Melhor Técnica, Técnica e Preço.Modalidade Concorrência:  Internacional, Menor Preço, Melhor Técnica e Técnica e Preço.Modalidade Pregão:  Eletrônico, Eletrônico para Registro de Preço, Eletrônico por Maior Desconto, Eletrônico por Lote (grupo de itens), Presencial, Presencial para Registro de Preço, Presencial por Maior Desconto" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="NR_PROCESSO_LICITACAO" nullable="true" remarks="Número do Processo informado pelo usuário" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="DATA_PUBLICACAO_LICITACAO" nullable="true" remarks="Data de publicação do Processo de Execução" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="DATA_ABERTURA_LICITACAO" nullable="true" remarks="Data de abertura do Processo de Execução" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="DATA_ENCERRAMENTO_LICITACAO" nullable="true" remarks="Data de encerramento do Processo de Execução" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="DATA_HOMOLOGACAO_LICITACAO" nullable="true" remarks="Data de homologação do Processo de Execução" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="STATUS_LICITACAO" nullable="true" remarks="Status: &quot;Concluído&quot;, &quot;Em Elaboração&quot;" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="SITUACAO_ACEITE_PROCESSO_EXECU" nullable="true" remarks="Situação do aceite do processo de execução" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="SISTEMA_ORIGEM" nullable="true" remarks="Nome do Sistema de Origem da Licitação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="SITUACAO_SISTEMA" nullable="true" remarks="Descrição da Situação da Licitação no Sistema de Compras Externo" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="VALOR_LICITACAO" nullable="true" remarks="Valor da Licitação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="DATA_ANALISE_ACEITE" nullable="true" remarks="Data de aceite da análise" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="DATA_ENVIO_ANALISE" nullable="true" remarks="Data de envio da análise" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_LICITACAO" sequenceNumberInPK="1"/>
+         <index name="licitacao_pk" unique="true">
+            <column ascending="true" name="ID_LICITACAO"/>
+         </index>
+      </table>
+      <table name="meta_crono_fisico" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_META" nullable="false" remarks="Código Sequencial do Sistema para uma Meta" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_META" foreignKey="meta_crono_fisico_fk" implied="false" onDeleteCascade="false" schema="public" table="etapa_crono_fisico"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_PROPOSTA" nullable="true" remarks="Código Sequencial do Sistema para uma Proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NR_CONVENIO" nullable="true" remarks="Número gerado pelo Siconv. Possui faixa de numeração reservada que vai de 700000 a 999999" size="2147483647" type="varchar" typeCode="12">
+            <parent column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="convenio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="COD_PROGRAMA" nullable="true" remarks="Chave que identifica o programa composta por: (Cód.Órgão+Ano+Cód.Sequencial do Sistema)" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="NOME_PROGRAMA" nullable="true" remarks="Descrição do Programa de Governo" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="NR_META" nullable="true" remarks="Número da Meta gerada pelo Sistema" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="TIPO_META" nullable="true" remarks="Tipo da Meta: NORMAL/APLICAÇÃO" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="DESC_META" nullable="true" remarks="Especificação da Meta do Cronograma Físico" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="DATA_INICIO_META" nullable="true" remarks="Data de início da Meta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="DATA_FIM_META" nullable="true" remarks="Data de término da Meta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="UF_META" nullable="true" remarks="UF cadastrada para a Meta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="MUNICIPIO_META" nullable="true" remarks="Município cadastrado para a Meta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="ENDERECO_META" nullable="true" remarks="Endereço cadastrado para a Meta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="CEP_META" nullable="true" remarks="CEP cadastrado para a Meta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="QTD_META" nullable="true" remarks="Quantidade da Meta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="UND_FORNECIMENTO_META" nullable="true" remarks="Unidade de Fornecimento da Meta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="VL_META" nullable="true" remarks="Valor da Meta" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_META" sequenceNumberInPK="1"/>
+         <index name="meta_crono_fisico_pk" unique="true">
+            <column ascending="true" name="ID_META"/>
+         </index>
+      </table>
+      <table name="obtv_convenente" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="NR_MOV_FIN" nullable="true" remarks="Número identificador da movimentação financeira" size="2147483647" type="varchar" typeCode="12">
+            <parent column="NR_MOV_FIN" foreignKey="pagamento_fk" implied="false" onDeleteCascade="false" schema="public" table="pagamento"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="IDENTIF_FAVORECIDO_OBTV_CONV" nullable="true" remarks="CNPJ/CPF do Favorecido recebedor do pagamento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NM_FAVORECIDO_OBTV_CONV" nullable="true" remarks="Nome do Favorecido recebedor do pagamento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="TP_AQUISICAO" nullable="true" remarks="Tipo de Aquisição" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="VL_PAGO_OBTV_CONV" nullable="true" remarks="Valor pago ao favorecido" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="pagamento" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="NR_MOV_FIN" nullable="false" remarks="Número identificador da movimentação financeira" size="2147483647" type="varchar" typeCode="12">
+            <child column="NR_MOV_FIN" foreignKey="pagamento_fk" implied="false" onDeleteCascade="false" schema="public" table="obtv_convenente"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="NR_CONVENIO" nullable="true" remarks="Número gerado pelo Siconv. Possui faixa de numeração reservada que vai de 700000 a 999999" size="2147483647" type="varchar" typeCode="12">
+            <parent column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="convenio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="IDENTIF_FORNECEDOR" nullable="true" remarks="CNPJ/CPF do Fornecedor" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="NOME_FORNECEDOR" nullable="true" remarks="Nome do Fornecedor" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="TP_MOV_FINANCEIRA" nullable="true" remarks="Tipo da movimentação financeira realizada. Domínio: Pagamento a favorecido, Pagamento a favorecido com OBTV" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="DATA_PAG" nullable="true" remarks="Data da realização do pagamento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="NR_DL" nullable="true" remarks="Número identificador do Documento de Liquidação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="DESC_DL" nullable="true" remarks="Descrição do Documento de Liquidação. Domínio: DIÁRIAS, DUPLICATA, FATURA, FOLHA DE PAGAMENTO, NOTA FISCAL, NOTA FISCAL / FATURA, OBTV PARA EXECUTOR, OBTV PARA O CONVENENTE, etc" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="VL_PAGO" nullable="true" remarks="Valor do pagamento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="ID_DL" nullable="true" remarks="Identificador Do Documento De Liquidação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="DATA_EMISSAO_DL" nullable="true" remarks="Data De Emissão Do Documento De Liquidação" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="NR_MOV_FIN" sequenceNumberInPK="1"/>
+         <index name="pagamento_pk" unique="true">
+            <column ascending="true" name="NR_MOV_FIN"/>
+         </index>
+      </table>
+      <table name="pagamento_tributo" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="NR_CONVENIO" nullable="true" remarks="Número gerado pelo Siconv. Possui faixa de numeração reservada que vai de 700000 a 999999" size="2147483647" type="varchar" typeCode="12">
+            <parent column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="convenio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="DATA_TRIBUTO" nullable="true" remarks="Data da realização do pagamento do tributo" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="VL_PAG_TRIBUTOS" nullable="true" remarks="Valor do tributo" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="pergunta_selecao_pac" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PERGUNTA_SELECAO_PAC" nullable="false" remarks="Identificador único da pergunta do programa Novo PAC" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_PERGUNTA_SELECAO_PAC" foreignKey="pergunta_fk" implied="false" onDeleteCascade="false" schema="public" table="resposta_selecao_pac"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_PROGRAMA" nullable="true" remarks="Código Sequencial do Sistema para um Programa" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROGRAMA" foreignKey="programa_fk" implied="false" onDeleteCascade="false" schema="public" table="programa"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="PERGUNTA_SELECAO_PAC" nullable="true" remarks="Campo para definição da pergunta do programa Novo PAC." size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_PERGUNTA_SELECAO_PAC" sequenceNumberInPK="1"/>
+         <index name="pergunta_selecao_pac_pk" unique="true">
+            <column ascending="true" name="ID_PERGUNTA_SELECAO_PAC"/>
+         </index>
+      </table>
+      <table name="plano_aplicacao_detalhado" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA" nullable="true" remarks="Código Sequencial do Sistema para uma Proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="SIGLA" nullable="true" remarks="UF cadastrada referente a localidade do item. Domínio: AC, AL, AM, AP, BA, CE, DF, ES, GO, MA, MG, MS, MT, PA, PB, PE, PI, PR, RJ, RN, RO, RR, RS, SC, SE, SP, TO" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="MUNICIPIO" nullable="true" remarks="Município cadastrado referente a localidade do item" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="NATUREZA_AQUISICAO" nullable="true" remarks="Código de natureza de aquisição" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="DESCRICAO_ITEM" nullable="true" remarks="Descrição do Item" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="CEP_ITEM" nullable="true" remarks="CEP cadastrado referente a localidade do item" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="ENDERECO_ITEM" nullable="true" remarks="Endereço cadastrado referente a localidade do item" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="TIPO_DESPESA_ITEM" nullable="true" remarks="Tipo da Despesa. Domínio: SERVICO, BEM, OUTROS, TRIBUTO, OBRA e DESPESA_ADMINISTRATIVA" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="NATUREZA_DESPESA" nullable="true" remarks="Natureza da Despesa referente ao item" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="SIT_ITEM" nullable="true" remarks="Situação atual do Item. Domínio: APROVADO" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="COD_NATUREZA_DESPESA" nullable="true" remarks="O campo que se refere à natureza da despesa contém um código composto por oito algarismos, sendo que o 1º dígito representa a categoria econômica, o 2º o grupo de natureza da despesa, o 3º e o 4º dígitos representam a modalidade de aplicação, o 5º e o 6º o elemento de despesa e o 7º e o 8º dígitos representam o desdobramento facultativo do elemento de despesa (subelemento)." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="QTD_ITEM" nullable="true" remarks="Quantidade de Itens" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="VALOR_UNITARIO_ITEM" nullable="true" remarks="Valor unitário do item" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="VALOR_TOTAL_ITEM" nullable="true" remarks="Valor total do item" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="ID_ITEM_PAD" nullable="true" remarks="Identificador único do item do plano de aplicação" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="programa" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROGRAMA" nullable="false" remarks="Código Sequencial do Sistema para um Programa" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_PROGRAMA" foreignKey="id_programa_fk" implied="false" onDeleteCascade="false" schema="public" table="apoiadores_emendas_programas"/>
+            <child column="ID_PROGRAMA" foreignKey="programa_fk" implied="false" onDeleteCascade="false" schema="public" table="pergunta_selecao_pac"/>
+            <child column="ID_PROGRAMA" foreignKey="programa_fk" implied="false" onDeleteCascade="false" schema="public" table="programa_proponentes"/>
+            <child column="ID_PROGRAMA" foreignKey="programa_fk" implied="false" onDeleteCascade="false" schema="public" table="programa_proposta"/>
+            <child column="ID_PROGRAMA" foreignKey="programa_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta_selecao_pac"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="COD_ORGAO_SUP_PROGRAMA" nullable="true" remarks="Código do Órgão executor do Programa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="DESC_ORGAO_SUP_PROGRAMA" nullable="true" remarks="Nome do Órgão executor do Programa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="COD_PROGRAMA" nullable="true" remarks="Chave que identifica o programa composta por: (Cód.Órgão+Ano+Cód.Sequencial do Sistema)" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="NOME_PROGRAMA" nullable="true" remarks="Descrição do Programa de Governo" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="SIT_PROGRAMA" nullable="true" remarks="Situação atual do Programa. Domínio: Cadastrado; Disponibilizado; Inativo" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="DATA_DISPONIBILIZACAO" nullable="true" remarks="Data de disponibilização do Programa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="ANO_DISPONIBILIZACAO" nullable="true" remarks="Ano de disponibilização do Programa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="DT_PROG_INI_RECEB_PROP" nullable="true" remarks="Data Início para o recebimento das propostas voluntárias para o Programa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="DT_PROG_FIM_RECEB_PROP" nullable="true" remarks="Data Fim para o recebimento das propostas voluntárias para o Programa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="DT_PROG_INI_EMENDA_PAR" nullable="true" remarks="Data Início para o recebimento das propostas de Emenda Parlamentar para o Programa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="DT_PROG_FIM_EMENDA_PAR" nullable="true" remarks="Data Fim para o recebimento das propostas de Emenda Parlamentar para o Programa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="DT_PROG_INI_BENEF_ESP" nullable="true" remarks="Data Início para o recebimento das propostas de beneficiário específico para o Programa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="DT_PROG_FIM_BENEF_ESP" nullable="true" remarks="Data Fim para o recebimento das propostas de beneficiário específico para o Programa" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="MODALIDADE_PROGRAMA" nullable="true" remarks="Modalidade do Programa. Domínio pode ser: CONTRATO DE REPASSE, CONVENIO, TERMO DE COLABORACAO, TERMO DE FOMENTO e TERMO DE PARCERIA" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="NATUREZA_JURIDICA_PROGRAMA" nullable="true" remarks="Natureza Jurídica Atendida pelo Programa. Domínio: Administração Pública Estadual ou do Distrito Federal, Administração Pública Municipal, Consórcio Público, Empresa pública/Sociedade de economia mista e Organização da Sociedade Civil" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="UF_PROGRAMA" nullable="true" remarks="Ufs Habilitadas para o Programa. Domínio: AC, AL, AM, AP, BA, CE, DF, ES, GO, MA, MG, MS, MT, PA, PB, PE, PI, PR, RJ, RN, RO, RR, RS, SC, SE, SP, TO, &lt;null&gt;. Quando o valor é nulo, o programa atende a todo o Brasil" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="ACAO_ORCAMENTARIA" nullable="true" remarks="Número da Ação Orçamentária" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="NOME_SUBTIPO_PROGRAMA" nullable="true" remarks="Nome do subtipo de instrumento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="DESCRICAO_SUBTIPO_PROGRAMA" nullable="true" remarks="Descrição do subtipo do instrumento" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_PROGRAMA" sequenceNumberInPK="1"/>
+         <index name="programa_pk" unique="true">
+            <column ascending="true" name="ID_PROGRAMA"/>
+         </index>
+      </table>
+      <table name="programa_proponentes" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROGRAMA" nullable="false" remarks="Código Sequencial do Sistema para um Programa" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROGRAMA" foreignKey="programa_fk" implied="false" onDeleteCascade="false" schema="public" table="programa"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_PROPONENTE" nullable="false" remarks="Identificador único do proponente" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPONENTE" foreignKey="proponente_fk" implied="false" onDeleteCascade="false" schema="public" table="proponentes"/>
+         </column>
+      </table>
+      <table name="programa_proposta" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROGRAMA" nullable="false" remarks="Código Sequencial do Sistema para um Programa" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROGRAMA" foreignKey="programa_fk" implied="false" onDeleteCascade="false" schema="public" table="programa"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_PROPOSTA" nullable="false" remarks="Código Sequencial do Sistema para uma Proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+      </table>
+      <table name="projeto_basico_acffo_modulo_empresas" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_ACFFO" nullable="false" remarks="Identificador único da tabela acffo" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_ACFFO" foreignKey="acffo_fk" implied="false" onDeleteCascade="false" schema="public" table="projeto_basico_lae_modulo_empresas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_PROPOSTA" nullable="true" remarks="Identificador único da tabela proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="ULTIMA_VERSAO_PROJETO_BASICO" nullable="true" remarks="Número da versão atual do Projeto Básico" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="APELIDO_EMPREENDIMENTO_PROJETO_BASICO" nullable="true" remarks="Apelido do empreendimento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="SITUACAO_PROJETO_BASICO" nullable="true" remarks="Situacao do Projeto Básico" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="SITUACAO_SPA" nullable="true" remarks="Situação do SPA" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="DATA_ACEITE_PROJETO_BASICO" nullable="true" remarks="Data do aceite do Projeto Básico" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_ACFFO" sequenceNumberInPK="1"/>
+         <index name="acffo_pk" unique="true">
+            <column ascending="true" name="ID_ACFFO"/>
+         </index>
+      </table>
+      <table name="projeto_basico_lae_modulo_empresas" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_QCI_ACFFO" nullable="false" remarks="Identificador único da tabela acffo_qci" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_QCI_ACFFO" foreignKey="acffo_fk" implied="false" onDeleteCascade="false" schema="public" table="projeto_basico_metas_modulo_empresas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_ACFFO" nullable="true" remarks="Identificador único da tabela acffo" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_ACFFO" foreignKey="acffo_fk" implied="false" onDeleteCascade="false" schema="public" table="projeto_basico_acffo_modulo_empresas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="ID_PROPOSTA" nullable="true" remarks="Identificador único da tabela proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="SITUACAO_LAE_PROJETO_BASICO" nullable="true" remarks="Situação da LAE do Projeto Básico" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="EMISSAO_LAE_PROJETO_BASICO" nullable="true" remarks="Emissão da LAE do Projeto Básico" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="DATA_EMISSAO_LAE_PROJETO_BASICO" nullable="true" remarks="Data de Emissão da LAE do Projeto Básico" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_QCI_ACFFO" sequenceNumberInPK="1"/>
+         <index name="acffo_qci_pk" unique="true">
+            <column ascending="true" name="ID_QCI_ACFFO"/>
+         </index>
+      </table>
+      <table name="projeto_basico_metas_modulo_empresas" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_META_PROJETO_BASICO" nullable="false" remarks="Identificador único da tabela acffo_meta" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_META_PROJETO_BASICO" foreignKey="acffo_meta_fk" implied="false" onDeleteCascade="false" schema="public" table="projeto_basico_submetas_modulo_empresas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_QCI_ACFFO" nullable="true" remarks="Identificador único da tabela acffo_qci" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_QCI_ACFFO" foreignKey="acffo_fk" implied="false" onDeleteCascade="false" schema="public" table="projeto_basico_lae_modulo_empresas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NUMERO_META_PROJETO_BASICO" nullable="true" remarks="Número da Meta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="DESCRICAO_META_PROJETO_BASICO" nullable="true" remarks="Descrição da Meta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="NOME_ITEM_INVESTIMENTO_META" nullable="true" remarks="Nome do Item de Investimento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="DESCRICAO_SUBITEM_INVESTIMENTO_META" nullable="true" remarks="Descrição do Subitem de Investimento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="QUANTIDADE_ITENS_META_PROJETO_BASICO" nullable="true" remarks="Quantidade de itens da Meta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="UNIDADE_ITEM_INVESTIMENTO_META" nullable="true" remarks="Código da unidade de fornecimento" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_META_PROJETO_BASICO" sequenceNumberInPK="1"/>
+         <index name="acffo_meta_pk" unique="true">
+            <column ascending="true" name="ID_META_PROJETO_BASICO"/>
+         </index>
+      </table>
+      <table name="projeto_basico_proposta_modulo_empresas" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA_ACFFO" nullable="false" remarks="Identificador único da tabela acffo_proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_PROPOSTA" nullable="true" remarks="Identificador único da tabela proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="VALOR_GLOBAL_PROPOSTA_PROJETO_BASICO" nullable="true" remarks="Valor Global da Proposta do Projeto Básico" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_PROPOSTA_ACFFO" sequenceNumberInPK="1"/>
+         <index name="acffo_proposta_pk" unique="true">
+            <column ascending="true" name="ID_PROPOSTA_ACFFO"/>
+         </index>
+      </table>
+      <table name="projeto_basico_submetas_modulo_empresas" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_SUBMETA_PROJETO_BASICO" nullable="false" remarks="Identificador único da tabela acffo_submeta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_META_PROJETO_BASICO" nullable="true" remarks="Identificador único da tabela acffo_meta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_META_PROJETO_BASICO" foreignKey="acffo_meta_fk" implied="false" onDeleteCascade="false" schema="public" table="projeto_basico_metas_modulo_empresas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="LOTE_SUBMETA_PROJETO_BASICO" nullable="true" remarks="Número do Lote" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="NUMERO_SUBMETA_PROJETO_BASICO" nullable="true" remarks="Número da Submeta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="DESCRICAO_SUBMETA_PROJETO_BASICO" nullable="true" remarks="Descrição da Submeta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="SITUACAO_SUBMETA_PROJETO_BASICO" nullable="true" remarks="Indicador da Situação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="VALOR_REPASSE_SUBMETA_PROJETO_BASICO" nullable="true" remarks="Valor do Repasse" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="VALOR_CONTRAPARTIDA_SUBMETA_PROJETO_BASICO" nullable="true" remarks="Valor da Contrapartida" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="VALOR_OUTROS_SUBMETA_PROJETO_BASICO" nullable="true" remarks="Valor Outros" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="VALOR_TOTAL_SUBMETA_PROJETO_BASICO" nullable="true" remarks="Valor Total" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="DATA_PREVISAO_INICIO_OBRA_PROJETO_BASICO" nullable="true" remarks="Data de previsão do início da obra" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="QUANTIDADE_MESES_DURACAO_OBRA_PROJETO_BASICO" nullable="true" remarks="Quantidade de meses de duração da obra" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="DATABASE_OBRA_PROJETO_BASICO" nullable="true" remarks="Data-base da PO" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="SIGLA_LOCALIDADE_OBRA_PROJETO_BASICO" nullable="true" remarks="Sigla da localidade" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="OBRA_ACOMPANHADA_POR_EVENTO_PROJETO_BASICO" nullable="true" remarks="Indicador de acompanhamento de eventos" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_SUBMETA_PROJETO_BASICO" sequenceNumberInPK="1"/>
+         <index name="acffo_submeta_pk" unique="true">
+            <column ascending="true" name="ID_SUBMETA_PROJETO_BASICO"/>
+         </index>
+      </table>
+      <table name="proponentes" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPONENTE" nullable="false" remarks="Identificador único do proponente" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_PROPONENTE" foreignKey="proponente_fk" implied="false" onDeleteCascade="false" schema="public" table="programa_proponentes"/>
+            <child column="ID_PROPONENTE" foreignKey="proponente_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta_selecao_pac"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="IDENTIF_PROPONENTE" nullable="false" remarks="CNPJ do Proponente" size="2147483647" type="varchar" typeCode="12">
+            <child column="IDENTIF_PROPONENTE" foreignKey="proponente_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NM_PROPONENTE" nullable="true" remarks="Nome da Entidade Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="MUNICIPIO_PROPONENTE" nullable="true" remarks="Município do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="UF_PROPONENTE" nullable="true" remarks="UF do Proponente. Domínio: AC, AL, AM, AP, BA, CE, DF, ES, GO, MA, MG, MS, MT, PA, PB, PE, PI, PR, RJ, RN, RO, RR, RS, SC, SE, SP, TO" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="ENDERECO_PROPONENTE" nullable="true" remarks="Endereço do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="BAIRRO_PROPONENTE" nullable="true" remarks="Bairro do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="CEP_PROPONENTE" nullable="true" remarks="CEP do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="EMAIL_PROPONENTE" nullable="true" remarks="E-mail do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="TELEFONE_PROPONENTE" nullable="true" remarks="Telefone do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="FAX_PROPONENTE" nullable="true" remarks="Fax do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_PROPONENTE" sequenceNumberInPK="1"/>
+         <index name="proponentes_pk" unique="true">
+            <column ascending="true" name="ID_PROPONENTE"/>
+         </index>
+         <index name="cnpj_proponente" unique="true">
+            <column ascending="true" name="IDENTIF_PROPONENTE"/>
+         </index>
+      </table>
+      <table name="proposta" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA" nullable="false" remarks="Código Sequencial do Sistema para uma Proposta" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_PROPOSTA" foreignKey="acompanhamento_obras_proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="acomp_obras_contratos_medicoes_modulo_empresas"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="ajuste_plano_trabalho"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="consorcios"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="convenio"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="cronograma_desembolso"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="emenda"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="historico_projeto_basico"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="historico_situacao"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="inst_cont_proposta_aio_modulo_empresas"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="justificativas_proposta"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="meta_crono_fisico"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="plano_aplicacao_detalhado"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="programa_proposta"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="projeto_basico_acffo_modulo_empresas"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="projeto_basico_lae_modulo_empresas"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="projeto_basico_proposta_modulo_empresas"/>
+            <child column="ID_PROPOSTA" foreignKey="ID_PROPOSTA" implied="false" onDeleteCascade="false" schema="public" table="siconv_coordenadas_obra"/>
+            <child column="ID_PROPOSTA" foreignKey="ID_PROPOSTA" implied="false" onDeleteCascade="false" schema="public" table="siconv_proposta_formalizacao_pac"/>
+            <child column="ID_PROPOSTA" foreignKey="ID_PROPOSTA" implied="false" onDeleteCascade="false" schema="public" table="siconv_resumo_fisico_financeiro"/>
+            <child column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="vrpl_proposta_licitacao_modulo_empresas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="UF_PROPONENTE" nullable="true" remarks="UF do Proponente. Domínio: AC, AL, AM, AP, BA, CE, DF, ES, GO, MA, MG, MS, MT, PA, PB, PE, PI, PR, RJ, RN, RO, RR, RS, SC, SE, SP, TO" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="MUNIC_PROPONENTE" nullable="true" remarks="Município do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="COD_MUNIC_IBGE" nullable="true" remarks="Código IBGE do Município" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="COD_ORGAO_SUP" nullable="true" remarks="Código do Órgão Superior do Concedente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="DESC_ORGAO_SUP" nullable="true" remarks="Nome do Órgão Superior do Concedente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="NATUREZA_JURIDICA" nullable="true" remarks="Natureza Jurídica do Proponente. Domínio: Administração Pública Estadual ou do Distrito Federal, Administração Pública Municipal, Consórcio Público, Empresa pública/Sociedade de economia mista e Organização da Sociedade Civil" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="NR_PROPOSTA" nullable="true" remarks="Número da Proposta gerado pelo Siconv" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="DIA_PROP" nullable="true" remarks="Dia do cadastro da Proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="MES_PROP" nullable="true" remarks="Mês do cadastro da Proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="ANO_PROP" nullable="true" remarks="Ano do cadastro da Proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="DIA_PROPOSTA" nullable="true" remarks="Data do cadastro da Proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="COD_ORGAO" nullable="true" remarks="Código do Órgão ou Entidade Concedente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="DESC_ORGAO" nullable="true" remarks="Nome do Órgão ou Entidade Concedente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="MODALIDADE" nullable="true" remarks="Modalidade da Proposta. Domínio pode ser: CONTRATO DE REPASSE, CONVENIO, TERMO DE COLABORACAO, TERMO DE FOMENTO e TERMO DE PARCERIA" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="IDENTIF_PROPONENTE" nullable="true" remarks="CNPJ do Proponente" size="2147483647" type="varchar" typeCode="12">
+            <parent column="IDENTIF_PROPONENTE" foreignKey="proponente_fk" implied="false" onDeleteCascade="false" schema="public" table="proponentes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="NM_PROPONENTE" nullable="true" remarks="Nome da Entidade Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="CEP_PROPONENTE" nullable="true" remarks="CEP do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="ENDERECO_PROPONENTE" nullable="true" remarks="Endereço do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="BAIRRO_PROPONENTE" nullable="true" remarks="Bairro do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="NM_BANCO" nullable="true" remarks="Nome do Banco para depósito do recurso da Transferência Voluntária" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="SITUACAO_CONTA" nullable="true" remarks="Situação atual da conta bancária do instrumento. Domínio: Aguardando Retorno do Banco, Enviada, Cadastrada, Registrada, Erro na Abertura de Conta, Regularizada, A Verificar, Aguardando Envio e Pendente de Regularização" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="SITUACAO_PROJETO_BASICO" nullable="true" remarks="Situação atual do Projeto Básico/Termo de Referência. Domínio: Aguardando Projeto Básico, Não Cadastrado, Projeto Básico Aprovado, Projeto Básico em Análise, Projeto Básico em Complementação, Projeto Básico Rejeitado" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="SIT_PROPOSTA" nullable="true" remarks="Situação atual da Proposta. Domínio pode ser: Proposta/Plano de Trabalho Cadastrados, Proposta/Plano de Trabalho em Análise, Proposta/Plano de Trabalho Rejeitados, Proposta/Plano de Trabalho Aprovados, etc" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="DIA_INIC_VIGENCIA_PROPOSTA" nullable="true" remarks="Data Início da Vigência da Proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="DIA_FIM_VIGENCIA_PROPOSTA" nullable="true" remarks="Data Fim da Vigência da Proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="OBJETO_PROPOSTA" nullable="true" remarks="Descrição do Objeto da Proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="ITEM_INVESTIMENTO" nullable="true" remarks="Itens de Investimento da proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="ENVIADA_MANDATARIA" nullable="true" remarks="Campo que indica se o Contrato de Repasse foi enviado para Instituição Mandatária. Domínio: SIM, NÃO e NÃO APLICÁVEL" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="VL_GLOBAL_PROP" nullable="true" remarks="Valor Global da proposta cadastrada (Valor de Repasse Proposta + Valor Contrapartida Proposta)" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="VL_REPASSE_PROP" nullable="true" remarks="Valor de Repasse do Governo Federal referente a proposta cadastrada" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="VL_CONTRAPARTIDA_PROP" nullable="true" remarks="Valor da Contrapartida apresentada na proposta pelo convenente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="NOME_SUBTIPO_PROPOSTA" nullable="true" remarks="Nome do subtipo de instrumento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="DESCRICAO_SUBTIPO_PROPOSTA" nullable="true" remarks="Descrição do subtipo do instrumento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="34" name="CD_AGENCIA" nullable="true" remarks="Código da Agência" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="35" name="CD_CONTA" nullable="true" remarks="Código da Conta" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_PROPOSTA" sequenceNumberInPK="1"/>
+         <index name="proposta_pk" unique="true">
+            <column ascending="true" name="ID_PROPOSTA"/>
+         </index>
+      </table>
+      <table name="proposta_cancelada" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA " nullable="false" remarks="Código Sequencial do Sistema para uma Proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="UF_PROPONENTE" nullable="true" remarks="UF do Proponente. Domínio: AC, AL, AM, AP, BA, CE, DF, ES, GO, MA, MG, MS, MT, PA, PB, PE, PI, PR, RJ, RN, RO, RR, RS, SC, SE, SP, TO" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="MUNIC_PROPONENTE" nullable="true" remarks="Município do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="COD_MUNIC_IBGE" nullable="true" remarks="Código IBGE do Município" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="COD_ORGAO_SUP" nullable="true" remarks="Código do Órgão Superior do Concedente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="DESC_ORGAO_SUP" nullable="true" remarks="Nome do Órgão Superior do Concedente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="NATUREZA_JURIDICA" nullable="true" remarks="Natureza Jurídica do Proponente. Domínio: Administração Pública Estadual ou do Distrito Federal, Administração Pública Municipal, Consórcio Público, Empresa pública/Sociedade de economia mista e Organização da Sociedade Civil" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="NR_PROPOSTA" nullable="true" remarks="Número da Proposta gerado pelo Siconv" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="DIA_PROP" nullable="true" remarks="Dia do cadastro da Proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="MES_PROP" nullable="true" remarks="Mês do cadastro da Proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="ANO_PROP" nullable="true" remarks="Ano do cadastro da Proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="DIA_PROPOSTA" nullable="true" remarks="Data do cadastro da Proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="COD_ORGAO" nullable="true" remarks="Código do Órgão ou Entidade Concedente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="DESC_ORGAO" nullable="true" remarks="Nome do Órgão ou Entidade Concedente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="MODALIDADE" nullable="true" remarks="Modalidade da Proposta. Domínio pode ser: CONTRATO DE REPASSE, CONVENIO, TERMO DE COLABORACAO, TERMO DE FOMENTO e TERMO DE PARCERIA" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="IDENTIF_PROPONENTE " nullable="true" remarks="CNPJ do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="NM_PROPONENTE" nullable="true" remarks="Nome da Entidade Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="CEP_PROPONENTE" nullable="true" remarks="CEP do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="18" name="ENDERECO_PROPONENTE" nullable="true" remarks="Endereço do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="19" name="BAIRRO_PROPONENTE" nullable="true" remarks="Bairro do Proponente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="20" name="NM_BANCO" nullable="true" remarks="Nome do Banco para depósito do recurso da Transferência Voluntária" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="21" name="SITUACAO_CONTA" nullable="true" remarks="Situação atual da conta bancária do instrumento. Domínio: Aguardando Retorno do Banco, Enviada, Cadastrada, Registrada, Erro na Abertura de Conta, Regularizada, A Verificar, Aguardando Envio e Pendente de Regularização" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="22" name="SITUACAO_PROJETO_BASICO" nullable="true" remarks="Situação atual do Projeto Básico/Termo de Referência. Domínio: Aguardando Projeto Básico, Não Cadastrado, Projeto Básico Aprovado, Projeto Básico em Análise, Projeto Básico em Complementação, Projeto Básico Rejeitado" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="23" name="SIT_PROPOSTA" nullable="true" remarks="Situação atual da Proposta. Domínio pode ser: Proposta/Plano de Trabalho Cancelados" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="24" name="DIA_INIC_VIGENCIA_PROPOSTA" nullable="true" remarks="Data Início da Vigência da Proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="25" name="DIA_FIM_VIGENCIA_PROPOSTA" nullable="true" remarks="Data Fim da Vigência da Proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="26" name="OBJETO_PROPOSTA" nullable="true" remarks="Descrição do Objeto da Proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="27" name="ITEM_INVESTIMENTO" nullable="true" remarks="Itens de Investimento da proposta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="28" name="ENVIADA_MANDATARIA" nullable="true" remarks="Campo que indica se o Contrato de Repasse foi enviado para Instituição Mandatária. Domínio: SIM, NÃO e NÃO APLICÁVEL" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="29" name="VL_GLOBAL_PROP" nullable="true" remarks="Valor Global da proposta cadastrada (Valor de Repasse Proposta + Valor Contrapartida Proposta)" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="30" name="VL_REPASSE_PROP" nullable="true" remarks="Valor de Repasse do Governo Federal referente a proposta cadastrada" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="31" name="VL_CONTRAPARTIDA_PROP" nullable="true" remarks="Valor da Contrapartida apresentada na proposta pelo convenente" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="32" name="NOME_SUBTIPO_PROPOSTA" nullable="true" remarks="Nome do subtipo de instrumento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="33" name="DESCRICAO_SUBTIPO_PROPOSTA" nullable="true" remarks="Descrição do subtipo do instrumento" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="proposta_selecao_pac" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA_SELECAO_PAC" nullable="false" remarks="Identificador único da Proposta do Novo PAC" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_PROPOSTA_SELECAO_PAC" foreignKey="proposta_pac_fk" implied="false" onDeleteCascade="false" schema="public" table="resposta_selecao_pac"/>
+            <child column="ID_PROPOSTA_SELECAO_PAC" foreignKey="ID_PROPOSTA_SELECAO_PAC" implied="false" onDeleteCascade="false" schema="public" table="siconv_proposta_formalizacao_pac"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_PROGRAMA" nullable="true" remarks="Código Sequencial do Sistema para um Programa" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROGRAMA" foreignKey="programa_fk" implied="false" onDeleteCascade="false" schema="public" table="programa"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="ID_PROPONENTE" nullable="true" remarks="Identificador único do proponente" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPONENTE" foreignKey="proponente_fk" implied="false" onDeleteCascade="false" schema="public" table="proponentes"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="NR_PROPOSTA_SELECAO_PAC" nullable="true" remarks="Número da Proposta do Novo PAC" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="DATA_CADASTRO_PROPOSTA_SELECAO_PAC" nullable="true" remarks="Data de Cadastro da Proposta do Novo PAC" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="DATA_ENVIO_PROPOSTA_SELECAO_PAC" nullable="true" remarks="Data de Envio da Proposta do Novo PAC" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="OBJETO_PROPOSTA_SELECAO_PAC" nullable="true" remarks="Objeto da Proposta do Novo PAC" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="SITUACAO_PROPOSTA_SELECAO_PAC" nullable="true" remarks="Situação da Proposta do Novo PAC." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="VALOR_TOTAL_PROPOSTA_SELECAO_PAC" nullable="true" remarks="Valor Total da Proposta do Novo PAC" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="JUSTIFICATIVA_PROPOSTA_SELECAO_PAC" nullable="true" remarks="Justificativa da Proposta do Novo PAC" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="TEM_ANEXO_PROPOSTA_SELECAO_PAC" nullable="true" remarks="Indica se a Proposta do Novo PAC tem anexos. Domínio: SIM, NÃO" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_PROPOSTA_SELECAO_PAC" sequenceNumberInPK="1"/>
+         <index name="proposta_selecao_pac_pk" unique="true">
+            <column ascending="true" name="ID_PROPOSTA_SELECAO_PAC"/>
+         </index>
+      </table>
+      <table name="prorroga_oficio" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="NR_CONVENIO" nullable="true" remarks="Número gerado pelo Siconv. Possui faixa de numeração reservada que vai de 700000 a 999999" size="2147483647" type="varchar" typeCode="12">
+            <parent column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="convenio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="NR_PRORROGA" nullable="true" remarks="Número do Prorroga de Ofício" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="DT_INICIO_PRORROGA" nullable="true" remarks="Data Início de Vigência do Prorroga de Ofício" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="DT_FIM_PRORROGA" nullable="true" remarks="Data Fim de Vigência do Prorroga de Ofício" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="DIAS_PRORROGA" nullable="true" remarks="Dias de prorrogação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="DT_ASSINATURA_PRORROGA" nullable="true" remarks="Data de assinatura do Prorroga de Ofício" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="SIT_PRORROGA" nullable="true" remarks="Situação atual do Prorroga de Ofício. Domínio: DISPONIBILIZADA, PUBLICADA" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="resposta_selecao_pac" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PERGUNTA_SELECAO_PAC" nullable="false" remarks="Identificador único da pergunta do programa Novo PAC" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PERGUNTA_SELECAO_PAC" foreignKey="pergunta_fk" implied="false" onDeleteCascade="false" schema="public" table="pergunta_selecao_pac"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_PROPOSTA_SELECAO_PAC" nullable="false" remarks="Identificador único da Proposta do Novo PAC" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA_SELECAO_PAC" foreignKey="proposta_pac_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta_selecao_pac"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="RESPOSTA_SELECAO_PAC" nullable="true" remarks="Resposta da pergunta da Proposta do Novo PAC" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="siconv_coordenadas_obra" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="ID_PROPOSTA" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="NOME_PROJETO_CADASTRO_OBRA" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="LATITUDE_CADASTRO_OBRA&#9;" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="LONGITUDE_CADASTRO_OBRA" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="siconv_proposta_formalizacao_pac" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA_SELECAO_PAC" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA_SELECAO_PAC" foreignKey="ID_PROPOSTA_SELECAO_PAC" implied="false" onDeleteCascade="false" schema="public" table="proposta_selecao_pac"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_PROPOSTA" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="ID_PROPOSTA" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NR_RESERVADO_PAC" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <index name="fki_ID_PROPOSTA_SELECAO_PAC" unique="false">
+            <column ascending="true" name="ID_PROPOSTA_SELECAO_PAC"/>
+         </index>
+      </table>
+      <table name="siconv_resumo_fisico_financeiro" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="ID_PROPOSTA" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="VALOR_TOTAL_RESUMO_FISICO_FINANCEIRO" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="PERCENTUAL_EXECUCAO_RESUMO_FISICO_FINANCEIRO" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="VALOR_REALIZADO_RESUMO_FISICO_FINANCEIRO" nullable="true" remarks="" size="2147483647" type="varchar" typeCode="12"/>
+         <index name="fki_ID_PROPOSTA" unique="false">
+            <column ascending="true" name="ID_PROPOSTA"/>
+         </index>
+      </table>
+      <table name="solicitacao_alteracao" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_SOLICITACAO" nullable="false" remarks="Identificador único da tabela solicitacao_alteracao" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_SOLICITACAO" foreignKey="solicitacao_fk" implied="false" onDeleteCascade="false" schema="public" table="termo_aditivo"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="NR_CONVENIO" nullable="true" remarks="Número gerado pelo Siconv. Possui faixa de numeração reservada que vai de 700000 a 999999" size="2147483647" type="varchar" typeCode="12">
+            <parent column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="convenio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NR_SOLICITACAO" nullable="true" remarks="Número sequencial juntamente com o ano da solicitação de alteração do Convenente para o Concedente, via termo aditivo." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="SITUACAO_SOLICITACAO" nullable="true" remarks="Situação da solicitação de alteração do Convenente para o Concedente, via termo aditivo: “ACEITA”, “RECUSADA”, “EM_ANALISE”, “CADASTRADA”" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="OBJETO_SOLICITACAO" nullable="true" remarks="Objeto de alteração da solicitação de alteração do Convenente para o Concedente, via termo aditivo." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="DATA_SOLICITACAO" nullable="true" remarks="Data da solicitação de alteração do convenente para o concedente, via termo aditivo." size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_SOLICITACAO" sequenceNumberInPK="1"/>
+         <index name="solicitacao_pk" unique="true">
+            <column ascending="true" name="ID_SOLICITACAO"/>
+         </index>
+      </table>
+      <table name="solicitacao_rendimento_aplicacao" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_SOLICITACAO_REND_APLICACAO" nullable="false" remarks="Identificador único do registro de solicitação de uso de rendimento de aplicação." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="NR_CONVENIO" nullable="true" remarks="Número gerado pelo Siconv. Possui faixa de numeração reservada que vai de 700000 a 999999." size="2147483647" type="varchar" typeCode="12">
+            <parent column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="convenio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NR_SOLICITACAO_REND_APLICACAO" nullable="true" remarks="Número único da solicitação por instrumento." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="STATUS_SOLICITACAO_REND_APLICACAO" nullable="true" remarks="Situação da solicitação de uso do rendimento de aplicação. Domínio: PT Ajustado e Aprovado (Aguardando atualização Agendador), Aguardando Análise do Concedente, Cadastrado, Cancelado pelo Convenente, Em Análise pelo Concedente, Autorizada (Aguardando ajuste PT), Recusada pelo Concedente, Em Complementação pelo Convenente, PT Ajustado (aguardando aprovação do Concedente), PT Ajustado e Aprovado, PT Reprovado e Cancelado,   Pendente de Envio ao SIAFI,   Enviado para o SIAFI, PT Ajustado e Pendente de Envio ao SIAFI" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="DATA_SOLICITACAO_REND_APLICACAO" nullable="true" remarks="Data da solicitação de uso de rendimento de aplicação." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="VALOR_SOLICITACAO_REND_APLICACAO" nullable="true" remarks="Valor da solicitação de uso de rendimento de aplicação." size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="VALOR_APROVADO_SOLICITACAO_REND_APLICACAO" nullable="true" remarks="Valor aprovado pelo Concedente para uso do rendimento de aplicação." size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_SOLICITACAO_REND_APLICACAO" sequenceNumberInPK="1"/>
+         <index name="solicitacao_rend_aplicacao_pk" unique="true">
+            <column ascending="true" name="ID_SOLICITACAO_REND_APLICACAO"/>
+         </index>
+         <index name="fki_NR_CONVENIO" unique="false">
+            <column ascending="true" name="NR_CONVENIO"/>
+         </index>
+      </table>
+      <table name="termo_aditivo" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="NR_CONVENIO" nullable="true" remarks="Número gerado pelo Siconv. Possui faixa de numeração reservada que vai de 700000 a 999999" size="2147483647" type="varchar" typeCode="12">
+            <parent column="NR_CONVENIO" foreignKey="convenio_fk" implied="false" onDeleteCascade="false" schema="public" table="convenio"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_SOLICITACAO" nullable="true" remarks="Identificador único da tabela solicitacao_alteracao" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_SOLICITACAO" foreignKey="solicitacao_fk" implied="false" onDeleteCascade="false" schema="public" table="solicitacao_alteracao"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NUMERO_TA" nullable="true" remarks="Número do Termo Aditivo" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="TIPO_TA" nullable="true" remarks="Tipo do Termo Aditivo" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="VL_GLOBAL_TA" nullable="true" remarks="Valor Global referente ao TA" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="VL_REPASSE_TA" nullable="true" remarks="Valor de Repasse referente ao TA" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="VL_CONTRAPARTIDA_TA" nullable="true" remarks="Valor de Contrapartida referente ao TA" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="DT_ASSINATURA_TA" nullable="true" remarks="Data da assinatura do Termo Aditivo" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="DT_INICIO_TA" nullable="true" remarks="Data Início de Vigência do Termo Aditivo" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="DT_FIM_TA" nullable="true" remarks="Data Fim de Vigência do Termo Aditivo" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="JUSTIFICATIVA_TA" nullable="true" remarks="Justificativa para a realização do Termo Aditivo" size="2147483647" type="varchar" typeCode="12"/>
+      </table>
+      <table name="vrpl_lotes_fornecedores_licitacao_modulo_empresas" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_LICITACAO_VRPL" nullable="false" remarks="Identificador único da tabela vrpl_licitacao" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_LICITACAO_VRPL" foreignKey="vrpl_licitacao_fk" implied="false" onDeleteCascade="false" schema="public" table="vrpl_proposta_licitacao_modulo_empresas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_LOTE_LICITACAO_VRPL" nullable="true" remarks="Identificador único da tabela vrpl_lote_licitacao" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="NUMERO_LOTE_LICITACAO_VRPL" nullable="true" remarks="Número do Lote Associado" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="RAZAO_SOCIAL_FORNECEDOR_LICITACAO_VRPL" nullable="true" remarks="Razão Social do Fornecedor" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="TIPO_IDENTIFICACAO_FORNECEDOR_LICITACAO_VRPL" nullable="true" remarks="Informa se a identificação é CPF ou CNPJ" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="IDENTIFICACAO_FORNECEDOR_LICITACAO_VRPL" nullable="true" remarks="CPF ou CNPJ do Fornecedor" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_LICITACAO_VRPL" sequenceNumberInPK="1"/>
+         <index name="vrpl_licitacao_pk" unique="true">
+            <column ascending="true" name="ID_LICITACAO_VRPL"/>
+         </index>
+      </table>
+      <table name="vrpl_metas_submetas_modulo_empresas" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_META_VRPL" nullable="true" remarks="Identificador único da tabela vrpl_meta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_SUBMETA_VRPL" nullable="false" remarks="Identificador único da tabela vrpl_submeta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="ID_PO_VRPL" nullable="true" remarks="Identificador único da tabela vrpl_po" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ID_PROPOSTA_VRPL" nullable="true" remarks="Identificador único da tabela vrpl_proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA_VRPL" foreignKey="vrpl_proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="vrpl_proposta_licitacao_modulo_empresas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="NUMERO_META_VRPL" nullable="true" remarks="Número da Meta da Análise" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="DESCRICAO_META_VRPL" nullable="true" remarks="Descrição da Meta da Análise" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="NUMERO_LOTE_LICITACAO_VRPL" nullable="true" remarks="Número do Lote Associado" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="NUMERO_SUBMETA_VRPL" nullable="true" remarks="Número da Submeta da fase de Análise" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="DESCRICAO_SUBMETA_VRPL" nullable="true" remarks="Descrição da fase de Análise" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="9" name="SITUACAO_SUBMETA_VRPL" nullable="true" remarks="Indicador da Situação da Submeta" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="10" name="VALOR_TOTAL_LICITADO_VRPL" nullable="true" remarks="Valor total licitado" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="11" name="DATA_PREVISAO_INICIO_OBRA_PO_VRPL" nullable="true" remarks="Data de previsão do início da obra do VRPL" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="12" name="DATABASE_PO_VRPL" nullable="true" remarks="Data-base preenchida no VRPL" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="13" name="SIGLA_LOCALIDADE_PO_VRPL" nullable="true" remarks="Sigla da Localidade" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="14" name="ACOMPANHADO_POR_EVENTO_PO_VRPL" nullable="true" remarks="Indica se PO é acompanhada por eventos" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="15" name="QUANTIDADE_ITENS_META_VRPL" nullable="true" remarks="Quantidade de itens da Meta da Análise" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="16" name="DESCRICAO_SUBITEM_INVESTIMENTO_META_VRPL" nullable="true" remarks="Descrição do Subitem de Investimento" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="17" name="UNIDADE_ITEM_INVESTIMENTO_META_VRPL" nullable="true" remarks="Código da unidade do item" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_SUBMETA_VRPL" sequenceNumberInPK="1"/>
+         <index name="vrpl_submeta_pk" unique="true">
+            <column ascending="true" name="ID_SUBMETA_VRPL"/>
+         </index>
+      </table>
+      <table name="vrpl_proposta_licitacao_modulo_empresas" remarks="" schema="public" type="TABLE">
+         <column autoUpdated="false" defaultValue="null" digits="0" id="0" name="ID_PROPOSTA" nullable="true" remarks="Identificador único da tabela proposta" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_PROPOSTA" foreignKey="proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="proposta"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="1" name="ID_PROPOSTA_VRPL" nullable="false" remarks="Identificador único da tabela vrpl_proposta" size="2147483647" type="varchar" typeCode="12">
+            <child column="ID_PROPOSTA_VRPL" foreignKey="vrpl_proposta_fk" implied="false" onDeleteCascade="false" schema="public" table="vrpl_metas_submetas_modulo_empresas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="2" name="ID_LICITACAO_VRPL" nullable="true" remarks="Identificador único da tabela vrpl_licitacao" size="2147483647" type="varchar" typeCode="12">
+            <parent column="ID_LICITACAO_VRPL" foreignKey="vrpl_licitacao_fk" implied="false" onDeleteCascade="false" schema="public" table="vrpl_lotes_fornecedores_licitacao_modulo_empresas"/>
+         </column>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="3" name="ULTIMA_VERSAO_PROPOSTA_VRPL" nullable="true" remarks="Versão atual da Proposta do VRPL" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="4" name="SITUACAO_VRPL" nullable="true" remarks="Sigla da Situação da Documentação" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="5" name="SITUACAO_PARECER_VRPL" nullable="true" remarks="Situação do Parecer do VRPL" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="6" name="EMISSAO_PARECER_VRPL" nullable="true" remarks="Indicador da Emissão do Parecer do VRPL" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="7" name="DATA_EMISSAO_PARECER_VRPL" nullable="true" remarks="Data da Emissão do Parecer do VRPL" size="2147483647" type="varchar" typeCode="12"/>
+         <column autoUpdated="false" defaultValue="null" digits="0" id="8" name="DATA_ACEITE_LICITACAO_VRPL" nullable="true" remarks="Data do Aceite da Licitação" size="2147483647" type="varchar" typeCode="12"/>
+         <primaryKey column="ID_PROPOSTA_VRPL" sequenceNumberInPK="1"/>
+         <index name="vrpl_proposta_pk" unique="true">
+            <column ascending="true" name="ID_PROPOSTA_VRPL"/>
+         </index>
+      </table>
+   </tables>
+</database>

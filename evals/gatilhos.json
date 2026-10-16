@@ -1,0 +1,22 @@
+[
+  {"query": "preciso montar uma planilha com todas as emendas pix que caíram pra prefeitura de Juiz de Fora desde 2022, com o valor de custeio e investimento separado", "should_trigger": true},
+  {"query": "meu chefe quer saber quanto o município de Petrolina recebeu de transferência especial, quebrado por parlamentar. consegue puxar isso do transferegov e me dar em excel?", "should_trigger": true},
+  {"query": "baixa os planos de ação do fundo a fundo pra estados e municípios de MG aprovados em 2025 e me manda em csv", "should_trigger": true},
+  {"query": "quero acompanhar os TEDs que o Ministério da Educação descentralizou pra universidades federais este ano, dá pra gerar uma planilha com valores e situação?", "should_trigger": true},
+  {"query": "lista de convênios da Funasa em execução no Piauí com o valor já desembolsado, preciso disso numa planilha pra uma auditoria semana que vem", "should_trigger": true},
+  {"query": "tem como eu receber todo dia de manhã uma planilha atualizada com as emendas parlamentares destinadas ao meu município (Caruaru-PE)? hoje faço isso na mão entrando no site", "should_trigger": true},
+  {"query": "trabalho numa OSC e queria ver as parcerias e propostas aprovadas com organizações do RS na plataforma transferegov.br, com valor e situação de cada uma", "should_trigger": true},
+  {"query": "quais deputados mandaram mais dinheiro via emenda pix pra Bahia em 2024? gera um ranking numa planilha com o total por parlamentar", "should_trigger": true},
+  {"query": "cruza os empenhos com as ordens bancárias das transferências especiais de 2025 pra eu ver o que já foi efetivamente pago a cada ente", "should_trigger": true},
+  {"query": "preciso dos contratos de repasse da Caixa com a prefeitura de Londrina, aqueles que ficavam no antigo siconv / plataforma +brasil, com vigência e valor", "should_trigger": true},
+  {"query": "consulta na API do Portal da Transparência os gastos com cartão de pagamento do governo federal em 2024 e monta uma planilha por órgão", "should_trigger": false},
+  {"query": "preciso da execução orçamentária do Ministério da Saúde por ação orçamentária em 2025, dados do SIAFI / Tesouro Gerencial, numa planilha", "should_trigger": false},
+  {"query": "baixa do SICONFI os relatórios RREO dos municípios de SP de 2024 e junta tudo numa planilha só", "should_trigger": false},
+  {"query": "me explica a diferença entre emenda individual, de bancada e de comissão no orçamento federal, é pra uma apresentação pro conselho", "should_trigger": false},
+  {"query": "quero o FPM e o FUNDEB repassados para Campinas em 2025, mês a mês, a partir dos dados do Tesouro Nacional", "should_trigger": false},
+  {"query": "puxa da API de dados abertos da Câmara dos Deputados as proposições apresentadas pelo deputado em 2025 e salva em csv", "should_trigger": false},
+  {"query": "tenho o arquivo emendas_2024.xlsx que exportei do transferegov semana passada; calcula o total por UF e faz um gráfico de barras na própria planilha", "should_trigger": false},
+  {"query": "monta um dashboard em React com dados fictícios de repasses federais para municípios, só pra eu mostrar o layout pro time", "should_trigger": false},
+  {"query": "preciso das licitações e contratos da prefeitura de Recife publicados no PNCP em 2025, numa planilha com fornecedor e valor", "should_trigger": false},
+  {"query": "escreve um ofício formal para a prefeitura pedindo informações sobre a execução de uma emenda pix que o município recebeu em 2023", "should_trigger": false}
+]

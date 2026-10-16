@@ -1,0 +1,16 @@
+{
+  "detail": [
+    {
+      "type": "literal_error",
+      "loc": [
+        "query",
+        "uf_beneficiario"
+      ],
+      "msg": "Input should be 'AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP' or 'TO'",
+      "input": "XX",
+      "ctx": {
+        "expected": "'AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MG', 'MS', 'MT', 'PA', 'PB', 'PE', 'PI', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP' or 'TO'"
+      }
+    }
+  ]
+}

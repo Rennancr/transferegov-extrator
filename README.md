@@ -155,6 +155,27 @@ acertou 75%.
 Rodar os evals consome a cota da sua conta e abre várias sessões do Claude. Use poucas em paralelo
 (`--paralelo 2`).
 
+### Verificação periódica (uma vez por mês ou antes de redistribuir o `.skill`)
+O maior risco da skill não está no código: está na **API do governo mudar sem aviso**, como já aconteceu
+quando um path e o formato da API foram trocados. Os testes offline usam respostas gravadas e não percebem esse
+tipo de mudança. Por isso, de tempos em tempos:
+
+1. **A API mudou?**
+   ```bash
+   python tools/snapshot_schemas.py      # baixa os schemas atuais para tests/fixtures/
+   git diff --stat tests/fixtures/       # algum openapi_*.json mudou?
+   ```
+   Se mudou: rode `python tools/gerar_references.py --online --contagens` e `pytest -m "not online"`, corrija
+   o que quebrar e gere o `.skill` de novo.
+2. **A skill ainda funciona de verdade?** `pytest -m online -q` consulta a API real, com poucas requisições.
+3. **As bibliotecas novas quebram algo?** Num ambiente separado, instale as versões mais recentes dentro das
+   faixas (`pip install -U -r requirements-dev.txt`) e rode `pytest -m "not online"`. Um aviso de API
+   descontinuada já faz os testes falharem (veja `pytest.ini`).
+4. Se algo mudou: gere o `.skill`, faça o commit e envie para o GitHub.
+
+Quando a skill ganhar mais usuários ou virar rotina diária de alguém, vale automatizar esses passos com uma
+verificação agendada no GitHub Actions.
+
 ## Limitações conhecidas
 
 - **Filtros de texto na API** comparam por "contém" e diferenciam acentos (`UBERLANDIA` ≠ `UBERLÂNDIA`).

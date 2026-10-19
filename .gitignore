@@ -17,3 +17,7 @@ Thumbs.db
 # Planilhas geradas em testes manuais e arquivos de bloqueio do Office
 teste_output/
 ~$*
+
+# Dados de cobertura gerados pelo pytest-cov
+.coverage
+htmlcov/

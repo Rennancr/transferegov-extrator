@@ -1,5 +1,10 @@
 # TransfereGov → planilha (skill do Claude)
 
+![testes](https://img.shields.io/badge/testes-91%20passando-brightgreen)
+![cobertura](https://img.shields.io/badge/cobertura-89%25-brightgreen)
+![python](https://img.shields.io/badge/python-3.13%20%7C%203.14-blue)
+![licença](https://img.shields.io/badge/licen%C3%A7a-MIT-lightgrey)
+
 Skill do [Claude](https://claude.ai) que busca **dados abertos do TransfereGov** e entrega **planilha Excel ou
 CSV**, a partir de um pedido em linguagem natural:
 
@@ -51,9 +56,31 @@ A partir daí, a skill vale em qualquer pasta. Outra opção é clonar este repo
 dentro dele: a skill já está em `.claude/skills/` e é carregada automaticamente.
 
 ### Requisitos
-- Python 3.11+ com `requests`, `pandas` e `openpyxl`. No claude.ai, o ambiente já costuma ter. No
-  Claude Code: `pip install -r requirements.txt`.
+- Python com as 3 bibliotecas da seção [Dependências](#dependências). No claude.ai, o ambiente já costuma
+  ter. No Claude Code: `pip install -r requirements.txt`.
 - Acesso à internet para `api-publica.transferegov.gestao.gov.br`.
+
+## Dependências
+
+A skill usa **só três bibliotecas**, de propósito: cada dependência a mais é um risco de algo ficar
+obsoleto ou mudar de comportamento numa atualização. Todo o resto é biblioteca padrão do Python.
+
+| Biblioteca | Para quê | Faixa aceita | Versões testadas |
+|---|---|---|---|
+| [requests](https://pypi.org/project/requests/) | chamadas HTTP à API e download dos arquivos | `>=2.31,<3` | 2.31.0 · 2.34.2 |
+| [pandas](https://pypi.org/project/pandas/) | tipagem, filtros locais, junções e exportação | `>=2.2,<4` | 2.2.3 · 2.3.3 · 3.0.6 |
+| [openpyxl](https://pypi.org/project/openpyxl/) | escrita do `.xlsx` (usada pelo pandas) | `>=3.1,<4` | 3.1.0 · 3.1.5 |
+
+- **Python testado:** 3.13 e 3.14.
+- Os 91 testes passam tanto com o **conjunto mínimo** (Python 3.13, requests 2.31.0, pandas 2.2.3,
+  openpyxl 3.1.0) quanto com o **conjunto atual** (Python 3.14, requests 2.34.2, pandas 3.0.6,
+  openpyxl 3.1.5).
+- O openpyxl 3.1.0 funciona, mas emite um aviso interno de descontinuação; a versão recomendada é a **3.1.5**.
+- O teto de cada faixa (`<próxima versão major`) evita que uma versão futura com mudanças incompatíveis
+  quebre a skill sem aviso.
+
+Só para desenvolvimento: `pytest`, `responses` (simula a API nos testes) e `pytest-cov` (cobertura). Veja
+`requirements-dev.txt`.
 
 ## O que esperar
 
@@ -92,10 +119,21 @@ python -m venv .venv
 pip install -r requirements-dev.txt
 
 pytest -m "not online" -q            # testes offline (rápidos, sem rede)
+pytest -m "not online" -q --cov=tg_extract   # testes + cobertura do script da skill
 pytest -m online -q                  # testes contra a API real
 python tools/snapshot_schemas.py     # atualiza os schemas gravados em tests/fixtures/
 python tools/gerar_references.py --contagens   # regenera as references (com volumes atuais)
 ```
+
+### Cobertura de testes
+**89%** do script da skill (`tg_extract.py`), medindo linhas e ramificações: 914 linhas e 392 ramificações.
+Os testes offline simulam a API a partir de respostas reais gravadas em `tests/fixtures/`. As partes que
+dependem da rede real (falhas de conexão, download de arquivos grandes) são exercitadas pelos testes `online`,
+que não entram nessa conta. Cobertura mede o que foi executado, não a qualidade dos testes; os casos
+obrigatórios estão descritos nos próprios arquivos de teste.
+
+Uma API descontinuada usada pelo script da skill **falha os testes** (configurado em `pytest.ini`). É o aviso
+antecipado de que uma versão futura de alguma biblioteca vai quebrar a skill.
 
 A CLI pode ser usada sem o Claude:
 

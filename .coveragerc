@@ -1,0 +1,7 @@
+[run]
+# Mede também ramificações (cada if nos dois sentidos): número mais conservador que só linhas.
+branch = True
+
+[report]
+show_missing = True
+skip_covered = False

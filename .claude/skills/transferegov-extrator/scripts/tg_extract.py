@@ -53,7 +53,7 @@ import unicodedata
 import xml.etree.ElementTree as ET
 import zipfile
 from dataclasses import dataclass, field, replace
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Callable
 
@@ -563,10 +563,12 @@ def _valor_faixa(ep: Endpoint, nome: str, tipo: str, formato: str | None, op: st
             raise ErroTG(f"{onde}: data deve estar em AAAA-MM-DD.")
         if formato == "date-time" and not m.group(2):
             # Limite só com a data vale para o dia inteiro: <=31/12 inclui 31/12 23:59; >31/12 começa em 01/01.
+            # timedelta da biblioteca padrão: pd.Timedelta aqui gera DeprecationWarning do numpy no pandas 2.x.
+            dia_seguinte = pd.Timestamp(ts.to_pydatetime() + timedelta(days=1))
             if op == "<=":
-                return "<", ts + pd.Timedelta(days=1)
+                return "<", dia_seguinte
             if op == ">":
-                return ">=", ts + pd.Timedelta(days=1)
+                return ">=", dia_seguinte
         return op, ts
     if tipo == "integer":
         if not re.fullmatch(r"-?\d+", valor):

@@ -1,3 +1,5 @@
-requests>=2.31
-pandas>=2.2
-openpyxl>=3.1
+# Dependências da skill (execução). Faixas testadas: veja a seção "Dependências" do README.
+# O teto (<próxima major) evita que uma versão futura com mudanças incompatíveis quebre a skill sem aviso.
+requests>=2.31,<3
+pandas>=2.2,<4
+openpyxl>=3.1,<4

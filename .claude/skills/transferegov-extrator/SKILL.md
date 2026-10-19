@@ -14,7 +14,9 @@ python scripts/tg_extract.py <tabelas|colunas|contar|extrair> --modulo M --tabel
 ```
 
 Os caminhos são relativos à pasta desta skill. No Windows, o comando pode ser `py` em vez de `python`.
-Dependências: `pip install requests pandas openpyxl` (em sandbox Linux gerenciado, acrescente `--break-system-packages`).
+Dependências (só três, de propósito): `pip install "requests>=2.31,<3" "pandas>=2.2,<4" "openpyxl>=3.1,<4"`.
+Em sandbox Linux gerenciado, acrescente `--break-system-packages`. Se já estiverem instaladas dentro dessas
+faixas, não reinstale.
 
 ## Módulos
 

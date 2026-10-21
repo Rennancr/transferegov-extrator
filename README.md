@@ -33,10 +33,27 @@ pública oficial, sem login nem token. Convênios saem dos arquivos de `/downloa
 
 ## Como instalar
 
+### Instalação rápida (Claude Code e outros agentes) · recomendada
+Com o [Node.js](https://nodejs.org) instalado, rode no terminal:
+
+```bash
+npx skills add Rennancr/transferegov-extrator -a claude-code -g
+```
+
+- Com `-g`, a skill vale em **todas as pastas**. Sem `-g`, só no projeto em que o comando foi rodado.
+- **Atualizar** para a versão mais recente: `npx skills update transferegov-extrator -g`
+- **Remover:** `npx skills remove transferegov-extrator`
+- **Outros agentes:** troque `-a claude-code` pelo agente desejado, ou use `-a '*'` para todos os suportados.
+
+A instalação usa a CLI aberta [skills](https://github.com/vercel-labs/skills), que lista a skill no
+[skills.sh](https://www.skills.sh). A CLI envia uma contagem anônima de instalações; para desativar, defina a
+variável `DISABLE_TELEMETRY=1` antes do comando.
+
+### Pelo arquivo `.skill` (claude.ai, ou sem Node.js)
 Baixe o arquivo **[`dist/transferegov-extrator.skill`](dist/transferegov-extrator.skill)**: abra o link e
 clique em *Download raw file*.
 
-### No claude.ai
+#### No claude.ai
 1. Abra **Configurações → Skills** (o nome do menu pode variar conforme o plano).
 2. Envie o arquivo `transferegov-extrator.skill`.
 3. Numa conversa, peça os dados normalmente. A skill é acionada sozinha.
@@ -44,7 +61,7 @@ clique em *Download raw file*.
 É preciso ter **execução de código** habilitada. Se a sua organização restringe a rede, o domínio
 `api-publica.transferegov.gestao.gov.br` precisa estar liberado.
 
-### No Claude Code
+#### No Claude Code, sem a CLI
 O `.skill` é um arquivo zip. Extraia o conteúdo em `~/.claude/skills/` (no Windows,
 `C:\Users\<seu usuário>\.claude\skills\`), de modo que fique assim:
 
